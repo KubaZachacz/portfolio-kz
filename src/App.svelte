@@ -1,5 +1,10 @@
 <script>
   // export let name;
+  import { onMount } from "svelte";
+  
+  import ScrollMagic from 'scrollmagic';
+  import 'scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators'
+
   import Lines from "./components/Lines.svelte";
 
   const sources = [
@@ -7,7 +12,10 @@
     "images/kuba-2.svg",
     "images/kuba-3.svg"
   ];
-  const controller = new ScrollMagic.Controller();
+
+  onMount(() => {
+ 
+   const controller = new ScrollMagic.Controller();
 
   //   .on("progress", function(e) {
   //     const headImage = document.getElementById("head-image");
@@ -19,20 +27,27 @@
   //     console.log(progress);
 
   new ScrollMagic.Scene({
-    triggerElement: "#trigger1",
-    duration: 200
+    triggerElement: "#first-section",
+    triggerHook: 0,
+    duration: 500,
+    offset: -250
   })
     .setPin("#first-section")
     .on("enter", function(event) {
       console.log("Scene entered.");
       document.querySelector("header").classList.remove("hidden");
+      document.querySelector("#first-section").classList.remove("hidden");
     })
     .on("leave", function(event) {
       console.log("Scene left.");
       document.querySelector("header").classList.add("hidden");
+      document.querySelector("#first-section").classList.add("hidden");
     })
+    // .setClassToggle("#first-section", "hidden")
     .addIndicators()
     .addTo(controller);
+ 
+ });
 </script>
 
 <style lang="scss">
@@ -117,6 +132,21 @@
   #first-section {
     margin-top: 25vh;
   }
+  :global(.showable) {
+    opacity: 0;
+    transition: opacity 0.7s ease-in-out;
+  }
+  :global(.showable.visible) {
+    opacity: 1;
+  }
+  :global(.hidable) {
+  opacity: 1;
+  transition: opacity 0.7s ease-in-out;
+  }
+  :global(.hidable.hidden) {
+    opacity: 0;
+  }
+
 </style>
 
 <main>
@@ -131,9 +161,9 @@
     <Lines />
 
   </div> -->
-  <div style="height: 1000px" />
+  <!-- <div style="height: 1000px" /> -->
   <div id="trigger1" class="spacer s0" />
-  <section id="first-section">
+  <section id="first-section" class="hidable">
     <p>Scroll for more info!</p>
   </section>
   <div style="height: 1000px" />

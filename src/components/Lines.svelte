@@ -1,5 +1,6 @@
 <script>
   import { onMount } from "svelte";
+  import anime from 'animejs/lib/anime.es.js';
 
   onMount(() => {
     // var tl = new TimelineLite();
