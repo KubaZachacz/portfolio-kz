@@ -33,7 +33,7 @@
 <div>
   <section id="intro1" class="hidable">
     <p>
-      Scroll for more info
+      Scroll down for more info
       <ScrollIcon />
     </p>
   </section>
@@ -50,7 +50,4 @@
     <p>It's working!</p>
   </section>
   <div style="height: 200px" />
-  <section id="intro5" class="showable">
-    <p>You're almost done!</p>
-  </section>
 </div>
