@@ -4,7 +4,7 @@
   .icon-scroll {
     position: relative;
     margin: 8px auto;
-    transform: scale(0.8);
+    transform: scale(0.6);
   }
   .icon-scroll:before {
     position: absolute;
