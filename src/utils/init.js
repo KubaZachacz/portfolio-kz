@@ -9,7 +9,7 @@ export default function init() {
     duration: 20000,
     delay: 0,
     loop: true,
-    // autoplay: false,
+    autoplay: false,
     // direction: "alternate",
     easing: "linear"
 
@@ -118,6 +118,7 @@ export default function init() {
       }
       if (scrollDirection === "FORWARD") {
         stage2.play();
+        rotate.play();
         // stage1.pause();
         // stage1.seek(0);
       }
@@ -132,6 +133,8 @@ export default function init() {
       if (scrollDirection === "REVERSE") {
         stage2.pause();
         stage2.seek(0);
+        rotate.pause();
+        rotate.seek(0);
       }
     })
     .on("enter", function({ scrollDirection }) {

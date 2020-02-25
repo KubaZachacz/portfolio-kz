@@ -1,10 +1,12 @@
 <script>
   import Lines from "./Lines.svelte";
   import { onMount } from "svelte";
-  // import { setup } from "../utils/explosion";
+  import { setup } from "../utils/explosion";
   import anime from "animejs/lib/anime.es.js";
 
-  onMount(() => {});
+  onMount(() => {
+    setup();
+  });
 </script>
 
 <style lang="scss">
@@ -54,15 +56,21 @@
       transform: translateX(-50%) scale(1.2);
     }
 
-    svg {
+    .animation-container {
       position: absolute;
       width: 150%;
       height: 100%;
       top: 0;
       left: 50%;
       transform: translateX(-50%);
-      z-index: -10;
+    }
 
+    canvas {
+      z-index: -5;
+    }
+
+    svg {
+      z-index: -10;
       g,
       path {
         transform-origin: center;
@@ -84,10 +92,9 @@
     class="head overlay visible"
     src="images/kuba-1.svg"
     alt="moi" />
-
+  <canvas class="animation-container" />
   <svg
-    width="560"
-    height="560"
+    class="animation-container"
     viewBox="0 0 560 560"
     fill="none"
     xmlns="http://www.w3.org/2000/svg">
