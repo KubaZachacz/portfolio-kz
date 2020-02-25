@@ -5,12 +5,15 @@
   import Head from "./components/Head.svelte";
 
   import init from "./utils/init";
+  import { setupLocale } from "./locale/setup";
 
   const sources = [
     "images/kuba-1.svg",
     "images/kuba-2.svg",
     "images/kuba-3.svg"
   ];
+  
+    setupLocale();
 
   onMount(() => {
     init();

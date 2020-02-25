@@ -2,8 +2,8 @@
   import { onMount } from "svelte";
   import ScrollMagic from "scrollmagic";
   import { controller } from "../stores.js";
+  import { _ } from 'svelte-i18n'
 
-  // console.log('header', dupa)
   onMount(() => {
     // new ScrollMagic.Scene({
     //   // triggerHook: 0,
@@ -51,7 +51,6 @@
     h2 {
       left: 0;
       transform: translateX(0);
-      // text-align: left;
     }
     h1 {
       font-size: 2rem;
@@ -73,5 +72,6 @@
 
 <header>
   <h1>Kuba Zachacz</h1>
-  <h2>Frontend Developer</h2>
+  <!-- <h2>Frontend Developer</h2> -->
+  <h2>{$_('title')}</h2>
 </header>
