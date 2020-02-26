@@ -4,15 +4,7 @@
   import { animateParticles } from "../utils/particlesAnimation";
   import anime from "animejs/lib/anime.es.js";
 
-  onMount(() => {
-    const stop = animateParticles("slow");
-    setTimeout(() => {
-      stop();
-      setTimeout(() => {
-        const stop = animateParticles("fast");
-      }, 5000);
-    }, [5000]);
-  });
+  onMount(() => {});
 </script>
 
 <style lang="scss">

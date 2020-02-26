@@ -2,7 +2,7 @@
   import { onMount } from "svelte";
   import ScrollMagic from "scrollmagic";
   import { controller } from "../stores.js";
-  import { _ } from 'svelte-i18n'
+  import { _ } from "svelte-i18n";
 
   onMount(() => {
     // new ScrollMagic.Scene({
@@ -28,7 +28,7 @@
   }
   h2,
   h1 {
-    text-transform: uppercase;
+    // text-transform: uppercase;
     font-weight: 100;
     transition: all 1s;
     width: fit-content;
@@ -69,9 +69,8 @@
   }
 </style>
 
-
 <header>
   <h1>Kuba Zachacz</h1>
-  <!-- <h2>Frontend Developer</h2> -->
-  <h2>{$_('title')}</h2>
+  <h2>Frontend Developer, engineer</h2>
+  <!-- <h2>{$_('title')}</h2> -->
 </header>

@@ -1,8 +1,11 @@
 import ScrollMagic from "scrollmagic";
 import "scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators";
 import anime from "animejs/lib/anime.es.js";
+import { animateParticles } from "./particlesAnimation";
 
-export default function init() {
+export default function initScroll() {
+  let stopParticles = null;
+
   const rotate = anime({
     targets: "#shape-wrapper",
     rotate: "1turn",
@@ -10,17 +13,11 @@ export default function init() {
     delay: 0,
     loop: true,
     autoplay: false,
-    // direction: "alternate",
     easing: "linear"
-
-    // easing: "spring"
   });
-
-  console.log(rotate);
 
   const stage1 = anime({
     targets: "#base-circle",
-    // rotate: { value: "1turn", duration: 10000 },
     scale: 1.1,
     fill: ["#d6e6ff"],
     duration: 800,
@@ -30,25 +27,6 @@ export default function init() {
     direction: "alternate",
     easing: "linear"
   });
-
-  // const stage1 = anime.timeline({
-  //   targets: "#base-circle",
-  //   loop: true,
-  //   autoplay: false,
-  //   // direction: "alternate",
-  //   easing: "linear",
-  //   delay: 0
-  // });
-  // stage1.add({
-  //   scale: 1.1,
-  //   // rotate: "1turn",
-  //   duration: 1000
-  // });
-  // stage1.add({
-  //   scale: 0.9,
-  //   rotate: "1turn",
-  //   duration: 10000
-  // });
 
   const stage2 = anime.timeline({
     loop: true,
@@ -139,6 +117,7 @@ export default function init() {
     })
     .on("enter", function({ scrollDirection }) {
       if (scrollDirection === "FORWARD") {
+        stopParticles = animateParticles("slow");
       }
     });
 
@@ -151,6 +130,8 @@ export default function init() {
       if (scrollDirection === "FORWARD") {
         document.querySelector("#head-2").classList.remove("visible");
         document.querySelector("#head-3").classList.add("visible");
+        stopParticles();
+        stopParticles = animateParticles("fast");
       }
       if (scrollDirection === "REVERSE") {
         document.getElementById("head-section").classList.remove("down");
@@ -163,6 +144,7 @@ export default function init() {
       }
       if (scrollDirection === "FORWARD") {
         document.getElementById("head-section").classList.add("down");
+        stopParticles();
       }
     });
 

@@ -4,7 +4,7 @@
   import Introduction from "./components/Introduction.svelte";
   import Head from "./components/Head.svelte";
 
-  import init from "./utils/init";
+  import initScroll from "./utils/scrollHandlers";
   import { setupLocale } from "./locale/setup";
 
   const sources = [
@@ -12,11 +12,11 @@
     "images/kuba-2.svg",
     "images/kuba-3.svg"
   ];
-  
-    setupLocale();
+
+  setupLocale();
 
   onMount(() => {
-    init();
+    initScroll();
   });
 </script>
 
