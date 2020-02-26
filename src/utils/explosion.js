@@ -1,61 +1,58 @@
 import anime from "animejs/lib/anime.es.js";
 
+const SHAPES = {
+  circle: 'circle',
+  squre: 'square'
+}
+
 export function setup() {
   const canvasEl = document.querySelector("canvas");
   const { width: cWidth, height: cHeight } = canvasEl.getBoundingClientRect();
 
-  var ctx = canvasEl.getContext("2d");
-  var numberOfParticules = 3;
+  const ctx = canvasEl.getContext("2d");
+  const numberOfParticules = 3;
 
-  var colors = ["#FF1461", "#18FF92", "#5A87FF", "#FBF38C"];
+  const particles = [
+    {
+      shape: SHAPES.circle,
+      colors: ["#FF1461", "#18FF92", "#25A9CC", "#FBF38C", "#FF4D22"],
+      range: {
+        x: [(3 * cWidth) / 4, cWidth],
+        y: [0, cHeight]
+      }
+    }, {
+      shape: SHAPES.squre,
+      colors: ["#2D4380", "#A6BEFF", "#5985FF", "#535F80", "#476BCC"],
+      range: {
+        x: [0, cWidth / 4],
+        y: [0, cHeight]
+      }
+    }
+  ]
 
   function setCanvasSize() {
     canvasEl.width = cWidth;
     canvasEl.height = cHeight;
   }
 
-  function setCircleParticuleDirection(p) {
+  function setParticuleDirection({ x, y }) {
+
     return {
-      x: anime.random((3 * cWidth) / 4, cWidth),
-      y: anime.random(0, cHeight)
+      x: anime.random(...x),
+      y: anime.random(...y)
     };
   }
 
-  function createCircleParticule(x, y) {
-    var p = {};
-    p.x = x;
-    p.y = y;
+  function createParticule({ startPos, particule }) {
+    const p = { ...startPos };
+    const { shape, colors, range } = particule;
     p.color = colors[anime.random(0, colors.length - 1)];
-    p.radius = anime.random(100, 200);
-    p.endPos = setCircleParticuleDirection(p);
-    p.draw = function() {
+    p.radius = anime.random(100, 150);
+    p.endPos = setParticuleDirection(range);
+    p.draw = function () {
       ctx.beginPath();
-      ctx.arc(p.x, p.y, p.radius, 0, 2 * Math.PI, true);
-      // ctx.rect(p.x, p.y, p.radius, p.radius);
-      ctx.fillStyle = p.color;
-      ctx.fill();
-    };
-    return p;
-  }
-
-  function setSquareParticuleDirection(p) {
-    return {
-      x: anime.random(0, cWidth / 4),
-      y: anime.random(0, cHeight)
-    };
-  }
-
-  function createSquareParticule(x, y) {
-    var p = {};
-    p.x = x;
-    p.y = y;
-    p.color = colors[anime.random(0, colors.length - 1)];
-    p.radius = anime.random(100, 200);
-    p.endPos = setSquareParticuleDirection(p);
-    p.draw = function() {
-      ctx.beginPath();
-      // ctx.arc(p.x, p.y, p.radius, 0, 2 * Math.PI, true);
-      ctx.rect(p.x, p.y, p.radius, p.radius);
+      if (shape === SHAPES.circle) ctx.arc(p.x, p.y, p.radius, 0, 2 * Math.PI, true);
+      else if (shape === SHAPES.squre) ctx.rect(p.x, p.y, p.radius, p.radius);
       ctx.fillStyle = p.color;
       ctx.fill();
     };
@@ -63,23 +60,25 @@ export function setup() {
   }
 
   function renderParticule(anim) {
-    for (var i = 0; i < anim.animatables.length; i++) {
+    for (let i = 0; i < anim.animatables.length; i++) {
       anim.animatables[i].target.draw();
     }
   }
 
-  function animateParticules(x, y) {
-    var particules = [];
-    for (var i = 0; i < numberOfParticules; i++) {
-      particules.push(createCircleParticule(x, y));
-      particules.push(createSquareParticule(x, y));
+  function animateParticules(startPos) {
+    const particules = [];
+    for (let i = 0; i < numberOfParticules; i++) {
+      for (let particule of Object.values(particles)) {
+        particules.push(createParticule({ ...{ particule, startPos } }));
+      }
+      // particules.push(createSquareParticule(x, y));
     }
     anime.timeline().add({
       targets: particules,
-      x: function(p) {
+      x: function (p) {
         return p.endPos.x;
       },
-      y: function(p) {
+      y: function (p) {
         return p.endPos.y;
       },
       radius: 1,
@@ -89,23 +88,23 @@ export function setup() {
     });
   }
 
-  var render = anime({
+  const render = anime({
     duration: Infinity,
-    update: function() {
+    update: function () {
       ctx.clearRect(0, 0, canvasEl.width, canvasEl.height);
     }
   });
 
-  var centerX = cWidth / 2;
-  var centerY = cHeight / 2;
+  const centerX = cWidth / 2;
+  const centerY = cHeight / 2;
 
   function autoClick() {
-    if (window.human) return;
-    animateParticules(
-      anime.random(centerX - 50, centerX + 50),
-      anime.random(centerY - 50, centerY + 50)
+    animateParticules({
+      x: anime.random(centerX - 50, centerX + 50),
+      y: anime.random(centerY - 50, centerY + 50)
+    }
     );
-    anime({ duration: 2500 }).finished.then(autoClick);
+    anime({ duration: 2000 }).finished.then(autoClick);
     // anime({ duration: 200 });
   }
 
