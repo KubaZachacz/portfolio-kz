@@ -1,11 +1,17 @@
 <script>
   import Lines from "./Lines.svelte";
   import { onMount } from "svelte";
-  import { setup } from "../utils/explosion";
+  import { animateParticles } from "../utils/particlesAnimation";
   import anime from "animejs/lib/anime.es.js";
 
   onMount(() => {
-    setup();
+    const stop = animateParticles("slow");
+    setTimeout(() => {
+      stop();
+      setTimeout(() => {
+        const stop = animateParticles("fast");
+      }, 5000);
+    }, [5000]);
   });
 </script>
 
