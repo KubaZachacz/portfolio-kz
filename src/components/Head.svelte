@@ -58,7 +58,7 @@
     position: fixed;
     height: 55vh;
     width: 50vw;
-    bottom: 2vh;
+    bottom: 0;
     left: 50%;
     transform: translateX(-50%);
     z-index: -5;
@@ -78,7 +78,7 @@
       class="head overlay visible"
       src="images/kuba-1.svg"
       alt="moi" />
-      <!-- <Art /> -->
+    <!-- <Art /> -->
   </div>
   <svg
     id="shape-container"

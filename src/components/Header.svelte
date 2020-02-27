@@ -78,6 +78,6 @@
 
 <header>
   <h1>Kuba Zachacz</h1>
-  <h2>Frontend Developer, engineer</h2>
+  <h2>Frontend Developer</h2>
   <!-- <h2>{$_('title')}</h2> -->
 </header>

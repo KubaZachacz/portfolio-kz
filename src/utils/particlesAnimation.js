@@ -1,5 +1,5 @@
 import anime from "animejs/lib/anime.es.js";
-import Color from 'color';
+import Color from "color";
 
 const SHAPES = {
   circle: "circle",
@@ -8,13 +8,13 @@ const SHAPES = {
 
 const CIRCLE_BASE = {
   shape: SHAPES.circle,
-  colors: ["#FF1461", "#18FF92", "#25A9CC", "#FBF38C", "#FF4D22"],
-}
+  colors: ["#FF1461", "#18FF92", "#25A9CC", "#FBF38C", "#FF4D22"]
+};
 
 const SQUARE_BASE = {
   shape: SHAPES.squre,
-  colors: ["#2D4380", "#A6BEFF", "#5985FF", "#535F80", "#476BCC"],
-}
+  colors: ["#2D4380", "#A6BEFF", "#5985FF", "#535F80", "#476BCC"]
+};
 
 export function animateParticles() {
   const canvasEl = document.querySelector("canvas");
@@ -22,7 +22,7 @@ export function animateParticles() {
 
   const ctx = canvasEl.getContext("2d");
 
-  let mode = "slow"
+  let mode = "slow";
 
   const config = {
     slow: {
@@ -47,9 +47,9 @@ export function animateParticles() {
         x: cWidth / 2,
         y: cHeight / 2
       },
-      animationDuration: 2500,
-      loopDuration: 1500,
-      fade: 0.005,
+      animationDuration: 3000,
+      loopDuration: 1000,
+      fade: 0.005
     },
     fast: {
       numberOfSideParticles: 10,
@@ -57,7 +57,7 @@ export function animateParticles() {
         {
           ...CIRCLE_BASE,
           range: {
-            x: [cWidth / 2, 7 * cWidth / 8],
+            x: [cWidth / 2, (7 * cWidth) / 8],
             y: [0, cHeight / 3]
           }
         },
@@ -75,7 +75,7 @@ export function animateParticles() {
       },
       animationDuration: 1500,
       loopDuration: 200,
-      fade: 0.01,
+      fade: 0.01
     },
     turbo: {
       numberOfSideParticles: 15,
@@ -83,7 +83,7 @@ export function animateParticles() {
         {
           ...CIRCLE_BASE,
           range: {
-            x: [cWidth / 2, 5 * cWidth / 6],
+            x: [cWidth / 2, (5 * cWidth) / 6],
             y: [0, cHeight / 3]
           }
         },
@@ -101,7 +101,7 @@ export function animateParticles() {
       },
       animationDuration: 1500,
       loopDuration: 200,
-      fade: 0.025,
+      fade: 0.025
     }
   };
 
@@ -123,14 +123,14 @@ export function animateParticles() {
     p.color = colors[anime.random(0, colors.length - 1)];
     p.radius = anime.random(100, 150);
     p.endPos = setParticuleDirection(range);
-    p.draw = function () {
+    p.draw = function() {
       ctx.beginPath();
       if (shape === SHAPES.circle)
         ctx.arc(p.x, p.y, p.radius, 0, 2 * Math.PI, true);
       else if (shape === SHAPES.squre) {
         const a = 1.4 * p.radius;
-        ctx.rect(p.x - a / 2, p.y - a / 2, a, a)
-      };
+        ctx.rect(p.x - a / 2, p.y - a / 2, a, a);
+      }
       ctx.fillStyle = p.color;
       ctx.fill();
     };
@@ -142,13 +142,13 @@ export function animateParticles() {
     for (let i = 0; i < anim.animatables.length; i++) {
       const { color, draw } = anim.animatables[i].target;
 
-      anim.animatables[i].target.color = Color(color).fade(fade)
+      anim.animatables[i].target.color = Color(color).fade(fade);
       draw();
     }
   }
 
   function animateParticles(startPos) {
-    const { numberOfSideParticles, animationDuration } = config[mode]
+    const { numberOfSideParticles, animationDuration } = config[mode];
 
     const outputParticles = [];
     for (let i = 0; i < numberOfSideParticles; i++) {
@@ -158,10 +158,10 @@ export function animateParticles() {
     }
     anime.timeline().add({
       targets: outputParticles,
-      x: function (p) {
+      x: function(p) {
         return p.endPos.x;
       },
-      y: function (p) {
+      y: function(p) {
         return p.endPos.y;
       },
       radius: 0.1,
@@ -173,7 +173,7 @@ export function animateParticles() {
 
   const render = anime({
     duration: Infinity,
-    update: function () {
+    update: function() {
       ctx.clearRect(0, 0, canvasEl.width, canvasEl.height);
     }
   });
@@ -186,9 +186,8 @@ export function animateParticles() {
     animateParticles(startPos);
     animationInterval = setInterval(() => {
       animateParticles(startPos);
-    }, config[mode].loopDuration)
+    }, config[mode].loopDuration);
   }
-
 
   setCanvasSize();
   window.addEventListener("resize", setCanvasSize, false);
@@ -198,7 +197,7 @@ export function animateParticles() {
     startParticlesAnimation: (newMode = "slow") => {
       mode = newMode;
       setCanvasSize();
-      startAnimation()
-    },
-  }
+      startAnimation();
+    }
+  };
 }
