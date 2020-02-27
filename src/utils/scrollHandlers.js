@@ -2,11 +2,24 @@ import ScrollMagic from "scrollmagic";
 import "scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators";
 import anime from "animejs/lib/anime.es.js";
 import { animateParticles } from "./particlesAnimation";
+import { circleMorhp1, circleMorhp2, intro, dir } from "./consts";
+import { reutrnElements } from "./DOMelements";
 
 export default function initScroll() {
-  let stopParticles = null;
 
-  const rotate = anime({
+  const {
+    intro1,
+    headContainer,
+    shapeContainer,
+    headSprite1,
+    headSprite2,
+    headSprite3,
+  } = reutrnElements();
+
+
+  const { startParticlesAnimation, stopParticlesAnimation } = animateParticles();
+
+  const spinCircle = anime({
     targets: "#shape-wrapper",
     rotate: "1turn",
     duration: 20000,
@@ -16,7 +29,7 @@ export default function initScroll() {
     easing: "linear"
   });
 
-  const stage1 = anime({
+  const pulseCircle = anime({
     targets: "#base-circle",
     scale: 1.1,
     fill: ["#d6e6ff"],
@@ -28,28 +41,36 @@ export default function initScroll() {
     easing: "linear"
   });
 
-  const stage2 = anime.timeline({
+  const morphCircle = anime.timeline({
     loop: true,
     easing: "easeOutQuad",
     autoplay: false,
     direction: "alternate"
   });
-  stage2.add({
+
+  // const moveOut = anime({
+  //   targets: [headContainer, shapeContainer],
+  //   translateY: [0, "100%"],
+  //   translateX: ["-50%", "-50%"],
+  //   autoplay: false,
+  //   duration: 10000,
+  // });
+
+  // moveOut.play();
+
+  morphCircle.add({
     targets: "#base-circle",
     d: [
       {
-        value:
-          "M429 335C429 381.805 472.783 459.028 444 491.5C410.291 529.53 330.816 483 276 483C224.629 483 147.881 525.448 114.5 491.5C81.8486 458.294 114.5 379.749 114.5 329.5C114.5 276.152 89.7284 213.608 126 180C158.821 149.589 227.727 191.5 276 191.5C326.865 191.5 396.694 146.639 430 180C463.234 213.289 429 284.245 429 335Z",
+        value: circleMorhp1,
         duration: 1000
       },
       {
-        value:
-          "M482.5 336C482.5 382.805 402.283 410.528 373.5 443C339.791 481.03 330.816 535 276 535C224.629 535 196.381 463.948 163 430C130.349 396.794 59.5 386.249 59.5 336C59.5 282.652 136.728 268.608 173 235C205.821 204.589 227.727 117.5 276 117.5C326.865 117.5 340.194 183.139 373.5 216.5C406.734 249.789 482.5 285.245 482.5 336Z",
+        value: circleMorhp2,
         duration: 1000
       },
       {
-        value:
-          "M429 335C429 381.805 472.783 459.028 444 491.5C410.291 529.53 330.816 483 276 483C224.629 483 147.881 525.448 114.5 491.5C81.8486 458.294 114.5 379.749 114.5 329.5C114.5 276.152 89.7284 213.608 126 180C158.821 149.589 227.727 191.5 276 191.5C326.865 191.5 396.694 146.639 430 180C463.234 213.289 429 284.245 429 335Z",
+        value: circleMorhp1,
         duration: 1000
       }
     ]
@@ -63,95 +84,108 @@ export default function initScroll() {
     }
   });
 
-  const intro1 = new ScrollMagic.Scene({
-    triggerElement: "#intro1"
+  const stage1 = new ScrollMagic.Scene({
+    triggerElement: intro.id1
   })
-    .setPin("#intro1")
-    .on("enter", function(event) {
-      document.querySelector("#intro1").classList.remove("hidden");
-      document.getElementById("head-section").classList.add("scaled");
-      stage1.pause();
-      stage1.seek(0);
+    .setPin(intro.id1)
+    .on("enter", function (event) {
+      intro1.classList.remove("hidden");
+      headContainer.classList.add("scaled");
+      shapeContainer.classList.add("scaled");
+      pulseCircle.pause();
+      pulseCircle.seek(0);
     })
-    .on("leave", function(event) {
-      document.querySelector("#intro1").classList.add("hidden");
-      document.getElementById("head-section").classList.remove("scaled");
-      stage1.play();
+    .on("leave", function (event) {
+      intro1.classList.add("hidden");
+      headContainer.classList.remove("scaled");
+      shapeContainer.classList.remove("scaled");
+      pulseCircle.play();
     });
 
-  const intro2 = new ScrollMagic.Scene({
-    triggerElement: "#intro2"
-  })
-    .setPin("#intro2")
-    .setClassToggle("#intro2", "visible")
 
-    .on("enter", function({ scrollDirection }) {
-      if (scrollDirection === "FORWARD") {
-        document.querySelector("#head-1").classList.remove("visible");
+  const stage2 = new ScrollMagic.Scene({
+    triggerElement: intro.id2
+  })
+    .setPin(intro.id2)
+    .setClassToggle(intro.id2, "visible")
+
+  const stage3 = new ScrollMagic.Scene({
+    triggerElement: intro.id3
+  })
+    .setPin(intro.id3)
+    .setClassToggle(intro.id3, "visible")
+
+    .on("enter", function ({ scrollDirection }) {
+      if (scrollDirection === dir.forward) {
+        headSprite1.classList.remove("visible");
       }
     })
-    .on("leave", function({ scrollDirection }) {
-      if (scrollDirection === "REVERSE") {
-        document.querySelector("#head-1").classList.add("visible");
+    .on("leave", function ({ scrollDirection }) {
+      if (scrollDirection === dir.forward) {
+        morphCircle.play();
+        spinCircle.play();
       }
-      if (scrollDirection === "FORWARD") {
-        stage2.play();
-        rotate.play();
-        // stage1.pause();
-        // stage1.seek(0);
-      }
-    });
-
-  const intro3 = new ScrollMagic.Scene({
-    triggerElement: "#intro3"
-  })
-    .setPin("#intro3")
-    .setClassToggle("#intro3", "visible")
-    .on("leave", function({ scrollDirection }) {
-      if (scrollDirection === "REVERSE") {
-        stage2.pause();
-        stage2.seek(0);
-        rotate.pause();
-        rotate.seek(0);
-      }
-    })
-    .on("enter", function({ scrollDirection }) {
-      if (scrollDirection === "FORWARD") {
-        stopParticles = animateParticles("slow");
+      else {
+        headSprite1.classList.add("visible");
       }
     });
 
-  const intro4 = new ScrollMagic.Scene({
-    triggerElement: "#intro4"
+  const stage4 = new ScrollMagic.Scene({
+    triggerElement: intro.id4
   })
-    .setPin("#intro4")
-    .setClassToggle("#intro4", "visible")
-    .on("enter", function({ scrollDirection }) {
-      if (scrollDirection === "FORWARD") {
-        document.querySelector("#head-2").classList.remove("visible");
-        document.querySelector("#head-3").classList.add("visible");
-        stopParticles();
-        stopParticles = animateParticles("fast");
+    .setPin(intro.id4)
+    .setClassToggle(intro.id4, "visible")
+    .on("leave", function ({ scrollDirection }) {
+      if (scrollDirection === dir.forward) {
+
+        startParticlesAnimation("fast");
+
       }
       if (scrollDirection === "REVERSE") {
-        document.getElementById("head-section").classList.remove("down");
+        morphCircle.pause();
+        morphCircle.seek(0);
+        spinCircle.pause();
+        spinCircle.seek(0);
+        stopParticlesAnimation();
       }
     })
-    .on("leave", function({ scrollDirection }) {
-      if (scrollDirection === "REVERSE") {
-        document.querySelector("#head-2").classList.add("visible");
-        document.querySelector("#head-3").classList.remove("visible");
+    .on("enter", function ({ scrollDirection }) {
+      startParticlesAnimation();
+    });
+
+  const stage5 = new ScrollMagic.Scene({
+    triggerElement: intro.id5
+  })
+    .setPin(intro.id5)
+    .setClassToggle(intro.id5, "visible")
+    .on("enter", function ({ scrollDirection }) {
+      if (scrollDirection === dir.forward) {
+        headSprite2.classList.remove("visible");
+        headSprite3.classList.add("visible");
       }
-      if (scrollDirection === "FORWARD") {
-        document.getElementById("head-section").classList.add("down");
-        stopParticles();
+      else {
+        startParticlesAnimation('fast');
+        headContainer.classList.remove("down");
+        shapeContainer.classList.remove("down");
+      }
+    })
+    .on("leave", function ({ scrollDirection }) {
+      if (scrollDirection === dir.forward) {
+        headContainer.classList.add("down");
+        shapeContainer.classList.add("down");
+        startParticlesAnimation('turbo');
+      }
+      else {
+        headSprite2.classList.add("visible");
+        headSprite3.classList.remove("visible");
       }
     });
 
-  controller.addScene([intro1, intro2, intro3, intro4]);
+  controller.addScene([stage1, stage2, stage3, stage4, stage5]);
 
-  intro1.triggerHook(0.25).addIndicators();
-  intro2.addIndicators();
-  intro3.addIndicators();
-  intro4.addIndicators();
+  stage1.triggerHook(0.25).addIndicators();
+  stage2.addIndicators();
+  stage3.addIndicators();
+  stage4.duration(1800).addIndicators();
+  stage5.addIndicators();
 }

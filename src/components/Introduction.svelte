@@ -39,14 +39,18 @@
   </section>
   <div style="height: 200px" />
   <section id="intro2" class="showable">
-    <p>Wait, what's happening?!</p>
+    <p>Hello GOOD TO YOU YOU!</p>
   </section>
   <div style="height: 200px" />
   <section id="intro3" class="showable">
-    <p>A little more harder!</p>
+    <p>Wait, what's happening?!</p>
   </section>
   <div style="height: 200px" />
   <section id="intro4" class="showable">
+    <p>A little more harder!</p>
+  </section>
+  <div style="height: 200px" />
+  <section id="intro5" class="showable">
     <p>It's working!</p>
   </section>
   <div style="height: 200px" />

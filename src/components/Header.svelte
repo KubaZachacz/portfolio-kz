@@ -25,6 +25,13 @@
 <style lang="scss">
   header {
     color: #002d8d;
+    background: rgb(255, 255, 255);
+    background: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 1) 50%
+    );
+    z-index: 10;
   }
   h2,
   h1 {
