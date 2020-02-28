@@ -2,7 +2,7 @@
   import { onMount } from "svelte";
   import ScrollMagic from "scrollmagic";
   import ScrollIcon from "./ScrollIcon.svelte";
-  //   import { controller } from "../stores.js";
+  import { _ } from "svelte-i18n";
 
   onMount(() => {});
 </script>
@@ -31,26 +31,26 @@
 </style>
 
 <div>
-  <section id="intro1" class="hidable">
+  <section id="intro-1" class="hidable">
     <p>
       Scroll down for more info
       <ScrollIcon />
     </p>
   </section>
   <div style="height: 200px" />
-  <section id="intro2" class="showable">
+  <section id="intro-2" class="showable">
     <p>Hello GOOD TO YOU YOU!</p>
   </section>
   <div style="height: 200px" />
-  <section id="intro3" class="showable">
+  <section id="intro-3" class="showable">
     <p>Wait, what's happening?!</p>
   </section>
   <div style="height: 200px" />
-  <section id="intro4" class="showable">
+  <section id="intro-4" class="showable">
     <p>A little more harder!</p>
   </section>
   <div style="height: 200px" />
-  <section id="intro5" class="showable">
+  <section id="intro-5" class="showable">
     <p>It's working!</p>
   </section>
   <div style="height: 200px" />

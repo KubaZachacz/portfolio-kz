@@ -2,7 +2,7 @@ export function reutrnElements() {
 
   return {
     pageHeader: document.getElementById("page-header"),
-    intro1: document.getElementById("intro1"),
+    intro1: document.getElementById("intro-1"),
     headContainer: document.getElementById("head-container"),
     shapeContainer: document.getElementById("shape-container"),
     particlesContainer: document.getElementById("particles-container"),

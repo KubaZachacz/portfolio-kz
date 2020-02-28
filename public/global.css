@@ -69,3 +69,13 @@ button:not(:disabled):active {
 button:focus {
   border-color: #666;
 }
+
+/* body {
+  -ms-overflow-style: none; 
+  scrollbar-width: none;  
+  overflow: -moz-scrollbars-none;
+}
+
+body::-webkit-scrollbar { 
+  display: none;
+} */
