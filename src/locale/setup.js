@@ -8,7 +8,7 @@ export function setupLocale() {
     addMessages('pl', pl);
     
     init({
-        fallbackLocale: 'en',
+        fallbackLocale: 'pl',
         // initialLocale: getLocaleFromNavigator(),
     });
 }
