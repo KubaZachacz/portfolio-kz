@@ -28,30 +28,59 @@
   :global(.hidable.hidden) {
     opacity: 0;
   }
+  p {
+    width: 90%;
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 20px;
+    line-height: 2.4rem;
+  }
+  .actual-introduction {
+    text-align: justify;
+    text-indent: 1em;
+    p {
+      line-height: 1.8rem;
+    }
+  }
+  .additional-text {
+    font-weight: 300;
+  }
 </style>
 
 <div>
   <section id="intro-1" class="hidable">
     <p>
-      Scroll down for more info
+      {$_('intro-1')}
       <ScrollIcon />
     </p>
   </section>
   <div style="height: 200px" />
-  <section id="intro-2" class="showable">
-    <p>Hello GOOD TO YOU YOU!</p>
+  <section id="intro-2" class="actual-introduction showable">
+    <p>{$_('intro-2')}</p>
+    <p>{$_('intro-2-b')} &#x1F643;</p>
   </section>
   <div style="height: 200px" />
   <section id="intro-3" class="showable">
-    <p>Wait, what's happening?!</p>
+    <p>
+      <em>{$_('intro-3')}</em>
+    </p>
   </section>
   <div style="height: 200px" />
   <section id="intro-4" class="showable">
-    <p>A little more harder!</p>
+    <p>
+      <em>{$_('intro-4')}</em>
+    </p>
+    <p class="additional-text">
+      <em>{$_('intro-4-b')}</em>
+    </p>
   </section>
-  <div style="height: 200px" />
+  <div style="height: 100px" />
   <section id="intro-5" class="showable">
-    <p>It's working!</p>
+    <p>
+      <em>
+        <strong>{$_('intro-5')}</strong>
+      </em>
+    </p>
   </section>
   <div style="height: 200px" />
 </div>

@@ -42,8 +42,10 @@
     );
   }
   .item {
+    position: relative;
     padding: 100px 0;
     text-align: center;
+    z-index: -15;
   }
 </style>
 
