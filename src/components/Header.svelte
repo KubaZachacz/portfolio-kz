@@ -5,20 +5,7 @@
   import { _ } from "svelte-i18n";
 
   onMount(() => {
-    // new ScrollMagic.Scene({
-    //   // triggerHook: 0,
-    //   duration: 500
-    //   // offset: -250
-    // })
-    //   .on("enter", function(event) {
-    //     document.querySelector("header").classList.remove("hidden");
-    //   })
-    //   .on("leave", function(event) {
-    //     document.querySelector("header").classList.add("hidden");
-    //   })
-    //   // .setClassToggle("#first-section", "hidden")
-    //   .addIndicators()
-    //   .addTo($controller);
+
   });
 </script>
 
@@ -35,11 +22,9 @@
   }
   h2,
   h1 {
-    // text-transform: uppercase;
     font-weight: 100;
     transition: all 1s;
     width: fit-content;
-    // text-align: center;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
@@ -53,7 +38,7 @@
     font-size: 3rem;
     margin: 0 0;
   }
-  :global(.hidden) {
+  :global(.navbar) {
     h1,
     h2 {
       left: 0;
@@ -76,7 +61,7 @@
   }
 </style>
 
-<header>
+<header id="page-header">
   <h1>Kuba Zachacz</h1>
   <h2>Frontend Developer</h2>
   <!-- <h2>{$_('title')}</h2> -->

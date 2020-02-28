@@ -7,17 +7,20 @@ import { reutrnElements } from "./DOMelements";
 
 export default function initScroll() {
   const {
+    pageHeader,
     intro1,
     headContainer,
     shapeContainer,
     headSprite1,
     headSprite2,
-    headSprite3
+    headSprite3,
+    timelineLines
   } = reutrnElements();
 
   const {
     startParticlesAnimation,
-    stopParticlesAnimation
+    stopParticlesAnimation,
+    singleParticlesAnimation
   } = animateParticles();
 
   const spinCircle = anime({
@@ -79,14 +82,14 @@ export default function initScroll() {
     triggerElement: intro.id1
   })
     .setPin(intro.id1)
-    .on("enter", function(event) {
+    .on("enter", function (event) {
       intro1.classList.remove("hidden");
       headContainer.classList.add("scaled");
       shapeContainer.classList.add("scaled");
       pulseCircle.pause();
       pulseCircle.seek(0);
     })
-    .on("leave", function(event) {
+    .on("leave", function (event) {
       intro1.classList.add("hidden");
       headContainer.classList.remove("scaled");
       shapeContainer.classList.remove("scaled");
@@ -105,14 +108,14 @@ export default function initScroll() {
     .setPin(intro.id3)
     .setClassToggle(intro.id3, "visible")
 
-    .on("enter", function({ scrollDirection }) {
+    .on("enter", function ({ scrollDirection }) {
       if (scrollDirection === dir.forward) {
         headSprite1.classList.remove("visible");
         morphCircle.play();
         spinCircle.play();
       }
     })
-    .on("leave", function({ scrollDirection }) {
+    .on("leave", function ({ scrollDirection }) {
       if (scrollDirection === dir.forward) {
       } else {
         headSprite1.classList.add("visible");
@@ -131,30 +134,32 @@ export default function initScroll() {
     .setPin(intro.id4)
     .setClassToggle(intro.id4, "visible")
     .on("progress", ({ progress }) => {
-      // console.log(progress);
-      if (Math.abs(progress - prevProgress) > 0.1) {
+      if (Math.abs(progress - prevProgress) > 0.2) {
         prevProgress = progress;
-        startParticlesAnimation();
+        singleParticlesAnimation();
       }
-    })
-    .on("leave", function({ scrollDirection }) {
-      if (scrollDirection === dir.forward) {
-        startParticlesAnimation("fast");
-      }
-      if (scrollDirection === "REVERSE") {
+      else {
         stopParticlesAnimation();
       }
     })
-    .on("enter", function({ scrollDirection }) {
-      // startParticlesAnimation();
-    });
+    .on("enter", function ({ scrollDirection }) {
+      singleParticlesAnimation();
+    })
+    .on("leave", function ({ scrollDirection }) {
+      if (scrollDirection === dir.forward) {
+        startParticlesAnimation("fast");
+      }
+    })
+    ;
+
+  let endParticlesTimeout = null;
 
   const stage5 = new ScrollMagic.Scene({
     triggerElement: intro.id5
   })
     .setPin(intro.id5)
     .setClassToggle(intro.id5, "visible")
-    .on("enter", function({ scrollDirection }) {
+    .on("enter", function ({ scrollDirection }) {
       if (scrollDirection === dir.forward) {
         headSprite2.classList.remove("visible");
         headSprite3.classList.add("visible");
@@ -162,13 +167,23 @@ export default function initScroll() {
         startParticlesAnimation("fast");
         headContainer.classList.remove("down");
         shapeContainer.classList.remove("down");
+        pageHeader.classList.remove("navbar");
+        timelineLines.classList.add("unrevealed");
+
+        clearTimeout(endParticlesTimeout);
       }
     })
-    .on("leave", function({ scrollDirection }) {
+    .on("leave", function ({ scrollDirection }) {
       if (scrollDirection === dir.forward) {
         headContainer.classList.add("down");
         shapeContainer.classList.add("down");
+        pageHeader.classList.add("navbar");
+        timelineLines.classList.remove("unrevealed");
         startParticlesAnimation("turbo");
+        
+        endParticlesTimeout = setTimeout(() => {
+          stopParticlesAnimation();
+        }, 1400);
       } else {
         headSprite2.classList.add("visible");
         headSprite3.classList.remove("visible");
@@ -181,5 +196,5 @@ export default function initScroll() {
   stage2.addIndicators();
   stage3.addIndicators();
   stage4.duration(1800).addIndicators();
-  stage5.addIndicators();
+  stage5.duration(300).addIndicators();
 }

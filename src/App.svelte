@@ -3,7 +3,7 @@
   import Header from "./components/Header.svelte";
   import Introduction from "./components/Introduction.svelte";
   import Head from "./components/Head.svelte";
-
+  import Timeline from './components/Timeline.svelte'
   import initScroll from "./utils/scrollHandlers";
   import { setupLocale } from "./locale/setup";
 
@@ -28,6 +28,6 @@
   <Header />
   <Head />
   <Introduction />
-
-  <div style="height: 1000px" />
+  <div style="height: 300px" />
+  <Timeline />
 </main>

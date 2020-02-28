@@ -1,8 +1,7 @@
 export function reutrnElements() {
 
-  // const {getElementById} = document;
-
   return {
+    pageHeader: document.getElementById("page-header"),
     intro1: document.getElementById("intro1"),
     headContainer: document.getElementById("head-container"),
     shapeContainer: document.getElementById("shape-container"),
@@ -10,5 +9,6 @@ export function reutrnElements() {
     headSprite1: document.getElementById("head-1"),
     headSprite2: document.getElementById("head-2"),
     headSprite3: document.getElementById("head-3"),
+    timelineLines: document.getElementById("timeline-lines"),
   };
 }
