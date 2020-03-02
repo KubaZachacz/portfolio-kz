@@ -55,8 +55,10 @@
     </p>
   </section>
   <div style="height: 200px" />
-  <section id="intro-2" class="actual-introduction showable">
+  <section id="intro-2" class=" showable">
     <p>{$_('intro-2')}</p>
+  </section>
+  <section id="intro-2-b" class=" showable">
     <p>{$_('intro-2-b')} &#x1F643;</p>
   </section>
   <div style="height: 200px" />

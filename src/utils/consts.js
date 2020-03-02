@@ -3,6 +3,7 @@ export const circleMorhp2 = "M482.5 336C482.5 382.805 402.283 410.528 373.5 443C
 export const intro = {
     id1: "#intro-1",
     id2: "#intro-2",
+    id2b: "#intro-2-b",
     id3: "#intro-3",
     id4: "#intro-4",
     id5: "#intro-5",

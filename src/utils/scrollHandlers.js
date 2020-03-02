@@ -102,6 +102,12 @@ export default function initScroll() {
     .setPin(intro.id2)
     .setClassToggle(intro.id2, "visible");
 
+  const stage2b = new ScrollMagic.Scene({
+    triggerElement: intro.id2b
+  })
+    .setPin(intro.id2b)
+    .setClassToggle(intro.id2b, "visible");
+
   const stage3 = new ScrollMagic.Scene({
     triggerElement: intro.id3
   })
@@ -190,10 +196,11 @@ export default function initScroll() {
       }
     });
 
-  controller.addScene([stage1, stage2, stage3, stage4, stage5]);
+  controller.addScene([stage1, stage2, stage2b, stage3, stage4, stage5]);
 
   stage1.triggerHook(0.25).addIndicators();
   stage2.addIndicators();
+  stage2b.addIndicators();
   stage3.addIndicators();
   stage4.duration(1800).addIndicators();
   stage5.duration(300).addIndicators();
