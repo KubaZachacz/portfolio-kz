@@ -15,6 +15,7 @@
         return i * 250;
       },
       direction: "normal",
+      autplay: true,
       // direction: "alternate",
       loop: true
     });
@@ -41,7 +42,7 @@
     z-index: -1;
   }
   path {
-    filter: url(#glow);
+    // filter: url(#glow);
     fill-opacity: 0;
     /* stroke-width: 5px; */
   }

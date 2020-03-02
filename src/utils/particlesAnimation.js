@@ -109,10 +109,12 @@ export function animateParticles() {
   return {
     stopParticlesAnimation: () => clearInterval(animationInterval),
     startParticlesAnimation: (newMode = "slow") => {
-      mode = newMode;
-      setCanvasSize();
-      startAnimation(config[mode]);
+      // mode = newMode;
+      // setCanvasSize();
+      // startAnimation(config[mode]);
     },
-    singleParticlesAnimation: () => animateParticles(config['slow'])
+    singleParticlesAnimation: () => {
+      // animateParticles(config['slow'])
+    }
   };
 }

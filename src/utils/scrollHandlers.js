@@ -2,7 +2,7 @@ import ScrollMagic from "scrollmagic";
 import "scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators";
 import anime from "animejs/lib/anime.es.js";
 import { animateParticles } from "./particlesAnimation";
-import { circleMorhp1, circleMorhp2, intro, dir } from "./consts";
+import { morphCriclePath, morphBrainPath, intro, dir } from "./consts";
 import { reutrnElements } from "./DOMelements";
 
 export default function initScroll() {
@@ -23,21 +23,40 @@ export default function initScroll() {
     singleParticlesAnimation
   } = animateParticles();
 
-  const spinCircle = anime({
-    targets: "#shape-wrapper",
-    rotate: "1turn",
-    duration: 20000,
-    delay: 0,
-    loop: true,
+  let isBrain = false;
+
+  const animeRight = anime({
+    targets: '#lines-right path',
+    strokeDashoffset: [anime.setDashoffset, 0],
+    easing: 'easeInOutSine',
+    duration: 2000,
+    delay: function(el, i) { return i * 250 },
     autoplay: false,
-    easing: "linear"
+    // direction: 'alternate',
+    // loop: true
   });
+
+  const animeLeft = anime({
+    targets: '#lines-left path',
+    strokeDashoffset: [anime.setDashoffset, 0],
+    easing: 'easeInOutSine',
+    duration: 2000,
+    delay: function(el, i) { return i * 200 },
+    autoplay: false,
+    // direction: 'alternate',
+    // loop: true
+  });
+
+  const handlePreLines = () => {
+    animeLeft.play();
+    animeRight.play();
+  }
 
   const pulseCircle = anime({
     targets: "#base-circle",
     scale: 1.1,
-    fill: ["#d6e6ff"],
-    duration: 800,
+    fill: ["#b7d0f7"],
+    duration: 1200,
     delay: 0,
     loop: true,
     autoplay: false,
@@ -45,30 +64,21 @@ export default function initScroll() {
     easing: "linear"
   });
 
-  const morphCircle = anime.timeline({
-    loop: true,
-    easing: "easeOutQuad",
-    autoplay: false,
-    direction: "alternate"
-  });
-
-  morphCircle.add({
-    targets: "#base-circle",
-    d: [
-      {
-        value: circleMorhp1,
-        duration: 1000
-      },
-      {
-        value: circleMorhp2,
-        duration: 1000
-      },
-      {
-        value: circleMorhp1,
-        duration: 1000
-      }
-    ]
-  });
+  const handleMorph = () => {
+    anime.timeline({
+      targets: "#base-circle",
+      easing: "easeOutQuad",
+      autoplay: true,
+    }).add({
+      targets: "#base-circle",
+      d: [
+        {
+          value: isBrain ? morphCriclePath : morphBrainPath,
+          duration: 1000
+        },
+      ]
+    });
+  }
 
   const controller = new ScrollMagic.Controller({
     globalSceneOptions: {
@@ -117,18 +127,22 @@ export default function initScroll() {
     .on("enter", function ({ scrollDirection }) {
       if (scrollDirection === dir.forward) {
         headSprite1.classList.remove("visible");
-        morphCircle.play();
-        spinCircle.play();
+        // if (isBrain) morphBrain.reverse();
+        // morphBrain.play();
+        handleMorph();
+        handlePreLines();
+
+        isBrain = true;
       }
     })
     .on("leave", function ({ scrollDirection }) {
       if (scrollDirection === dir.forward) {
       } else {
         headSprite1.classList.add("visible");
-        morphCircle.pause();
-        morphCircle.seek(0);
-        spinCircle.pause();
-        spinCircle.seek(0);
+        // morphBrain.reverse();
+        // morphBrain.play();
+        handleMorph();
+        isBrain = false;
       }
     });
 
@@ -186,7 +200,7 @@ export default function initScroll() {
         pageHeader.classList.add("navbar");
         timelineLines.classList.remove("unrevealed");
         startParticlesAnimation("turbo");
-        
+
         endParticlesTimeout = setTimeout(() => {
           stopParticlesAnimation();
         }, 1400);
