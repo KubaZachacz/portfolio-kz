@@ -80,7 +80,7 @@
       class="head overlay visible"
       src="images/kuba-1.svg"
       alt="moi" />
-  <Lines />
+    <!-- <Lines /> -->
 
     <!-- <Art /> -->
   </div>

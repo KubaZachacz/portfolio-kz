@@ -1,6 +1,6 @@
 import anime from "animejs/lib/anime.es.js";
 import Color from "color";
-import { returnConfig } from './particlesConfig'
+import { returnConfig } from "./particlesConfig";
 
 const SHAPES = {
   circle: "circle",
@@ -37,7 +37,7 @@ export function animateParticles() {
     p.color = colors[anime.random(0, colors.length - 1)];
     p.radius = anime.random(100, 150);
     p.endPos = setParticuleDirection(range);
-    p.draw = function () {
+    p.draw = function() {
       ctx.beginPath();
       if (shape === SHAPES.circle)
         ctx.arc(p.x, p.y, p.radius, 0, 2 * Math.PI, true);
@@ -72,10 +72,10 @@ export function animateParticles() {
     }
     anime.timeline().add({
       targets: outputParticles,
-      x: function (p) {
+      x: function(p) {
         return p.endPos.x;
       },
-      y: function (p) {
+      y: function(p) {
         return p.endPos.y;
       },
       radius: 0.1,
@@ -87,7 +87,7 @@ export function animateParticles() {
 
   const render = anime({
     duration: Infinity,
-    update: function () {
+    update: function() {
       ctx.clearRect(0, 0, canvasEl.width, canvasEl.height);
     }
   });
@@ -95,7 +95,6 @@ export function animateParticles() {
   let animationInterval = null;
 
   function startAnimation(config) {
-
     clearInterval(animationInterval);
     animateParticles(config);
     animationInterval = setInterval(() => {
@@ -109,12 +108,12 @@ export function animateParticles() {
   return {
     stopParticlesAnimation: () => clearInterval(animationInterval),
     startParticlesAnimation: (newMode = "slow") => {
-      // mode = newMode;
-      // setCanvasSize();
-      // startAnimation(config[mode]);
+      mode = newMode;
+      setCanvasSize();
+      startAnimation(config[mode]);
     },
     singleParticlesAnimation: () => {
-      // animateParticles(config['slow'])
+      animateParticles(config["slow"]);
     }
   };
 }
