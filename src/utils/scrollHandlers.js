@@ -51,9 +51,9 @@ export default function initScroll() {
     targets: "#lines-2-right path",
     strokeDashoffset: [anime.setDashoffset, 0],
     easing: "easeInOutSine",
-    duration: 2000,
+    duration: 8000,
     delay: function(el, i) {
-      return i * 250;
+      return i * 400;
     },
     autoplay: false
   });
@@ -62,9 +62,9 @@ export default function initScroll() {
     targets: "#lines-2-left path",
     strokeDashoffset: [anime.setDashoffset, 0],
     easing: "easeInOutSine",
-    duration: 2000,
+    duration: 4000,
     delay: function(el, i) {
-      return i * 200;
+      return i * 400;
     },
     autoplay: false
   });
@@ -239,10 +239,13 @@ export default function initScroll() {
 
   controller.addScene([stage1, stage2, stage2b, stage3, stage4, stage5]);
 
-  stage1.triggerHook(0.25).addIndicators();
-  stage2.addIndicators();
-  stage2b.addIndicators();
-  stage3.addIndicators();
-  stage4.duration(1800).addIndicators();
-  stage5.duration(300).addIndicators();
+  stage1.triggerHook(0.25)
+  // .addIndicators();
+  // stage2.addIndicators();
+  // stage2b.addIndicators();
+  // stage3.addIndicators();
+  stage4.duration(1800)
+  // .addIndicators();
+  stage5.duration(300)
+  // .addIndicators();
 }

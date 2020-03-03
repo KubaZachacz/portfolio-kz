@@ -6,18 +6,19 @@
   .timeline-lines {
     position: fixed;
     top: 0;
-    left: 0;
+    left: 50%;
     height: 100vh;
-    width: 100vw;
+    transform: translate(-50%, 0%);
     display: flex;
-    justify-content: center;
     transition: all 1.5s;
     z-index: -20;
   }
+
   :global(.unrevealed) {
-    transform: translateY(100%);
+    transform: translate(-50%, 100%) !important;
     opacity: 0.25;
   }
+
   .line {
     width: 4px;
     height: 100%;
@@ -49,6 +50,7 @@
   }
 </style>
 
+<!-- <div id="timeline-lines" class="timeline-lines"> -->
 <div id="timeline-lines" class="timeline-lines unrevealed">
   <div class="line technology" />
   <div class="line creativity" />

@@ -15,6 +15,7 @@
   }
 
   .head-position {
+    display: block;
     position: fixed;
     bottom: 2vh;
     left: 50%;
@@ -60,6 +61,18 @@
     position: fixed;
     height: 55vh;
     width: 50vw;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -50;
+  }
+  .svg-container {
+    position: fixed;
+    height: 55vh;
+    // width: 50vw;
+    // width: 120%;
+    // max-width: 850px;
+    // min-width: 320px;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
@@ -121,5 +134,7 @@
     </g>
   </svg>
   <canvas id="particles-container" class="head-position" />
+</div>
+<div class="svg-container">
   <Drawing />
 </div>
