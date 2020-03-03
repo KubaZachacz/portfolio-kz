@@ -1,7 +1,7 @@
 import ScrollMagic from "scrollmagic";
 import "scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators";
 import anime from "animejs/lib/anime.es.js";
-import { animateParticles } from "./particlesAnimation";
+// import { animateParticles } from "./particlesAnimation";
 import { setupLineDrawHanlder } from './lineDrawHanlder'
 import { morphCriclePath, morphBrainPath, intro, dir } from "./consts";
 import { reutrnElements } from "./DOMelements";
@@ -19,14 +19,11 @@ export default function initScroll() {
   } = reutrnElements();
 
   const {
-    startParticlesAnimation,
-    stopParticlesAnimation,
-    singleParticlesAnimation
-  } = animateParticles();
-
-  let isBrain = false;
-
-  const { lines, animateLines, setLinesProgress, restartLinesProgress } = setupLineDrawHanlder();
+    lines,
+    animateLines,
+    setLinesProgress,
+    restartLinesProgress
+  } = setupLineDrawHanlder();
 
   const pulseCircle = anime({
     targets: "#base-circle",
@@ -39,6 +36,8 @@ export default function initScroll() {
     direction: "alternate",
     easing: "linear"
   });
+
+  let isBrain = false;
 
   const handleMorph = () => {
     anime
@@ -107,7 +106,6 @@ export default function initScroll() {
       if (scrollDirection === dir.forward) {
         headSprite1.classList.remove("visible");
         handleMorph();
-        // drawLines();
         animateLines(lines.pahse1)
         isBrain = true;
       }
@@ -116,7 +114,6 @@ export default function initScroll() {
       if (scrollDirection === dir.forward) {
       } else {
         headSprite1.classList.add("visible");
-
         animateLines(lines.pahse1)
 
         handleMorph();
@@ -182,12 +179,6 @@ export default function initScroll() {
   controller.addScene([stage1, stage2, stage2b, stage3, stage4, stage5]);
 
   stage1.triggerHook(0.25)
-  // .addIndicators();
-  // stage2.addIndicators();
-  // stage2b.addIndicators();
-  // stage3.addIndicators();
   stage4.duration(1800)
-  // .addIndicators();
   stage5.duration(300)
-  // .addIndicators();
 }
