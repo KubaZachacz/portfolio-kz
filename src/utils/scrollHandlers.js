@@ -2,6 +2,7 @@ import ScrollMagic from "scrollmagic";
 import "scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators";
 import anime from "animejs/lib/anime.es.js";
 import { animateParticles } from "./particlesAnimation";
+import { setupLineDrawHanlder } from './lineDrawHanlder'
 import { morphCriclePath, morphBrainPath, intro, dir } from "./consts";
 import { reutrnElements } from "./DOMelements";
 
@@ -25,66 +26,7 @@ export default function initScroll() {
 
   let isBrain = false;
 
-
-  const linesTargets = {
-    lvl1: [{ id: "lines-right", duration: 5400 }, { id: "lines-left", duration: 5400 }],
-    lvl2: [{ id: "lines-2-right", duration: 5400 }, { id: "lines-2-left", duration: 5400 }],
-  }
-
-  const drawBasicConfig = {
-    easing: "easeInOutSine",
-    strokeDashoffset: [anime.setDashoffset, 0],
-    delay: function (el, i) {
-      return i * 200;
-    },
-    autoplay: false
-  }
-
-  const lvl1left = anime({
-    targets: `#lines-left path`,
-    duration: 1200,
-    ...drawBasicConfig
-  })
-
-  const lvl1right = anime({
-    targets: `#lines-right path`,
-    duration: 2200,
-    ...drawBasicConfig
-  })
-
-  const lvl2left = anime({
-    targets: `#lines-2-left path`,
-    duration: 1000,
-    ...drawBasicConfig
-  })
-
-  const lvl2right = anime({
-    targets: `#lines-2-right path`,
-    duration: 1000,
-    ...drawBasicConfig
-  })
-
-  const drawLines = () => {
-    if (lvl1left.began || lvl1left.completed) {
-      lvl1left.reverse();
-      lvl1right.reverse();
-    }
-    lvl1left.play();
-    lvl1right.play();
-  }
-
-  const drawAll = () => {
-    if (lvl2left.began || lvl1left.completed) {
-      lvl1left.reverse();
-      lvl1right.reverse();
-      lvl2left.reverse();
-      lvl2right.reverse();
-    }
-    lvl1left.play();
-    lvl1right.play();
-    lvl2left.play();
-    lvl2right.play();
-  }
+  const { lines, animateLines, setLinesProgress, restartLinesProgress } = setupLineDrawHanlder();
 
   const pulseCircle = anime({
     targets: "#base-circle",
@@ -134,6 +76,7 @@ export default function initScroll() {
       shapeContainer.classList.add("scaled");
       pulseCircle.pause();
       pulseCircle.seek(0);
+      restartLinesProgress(lines.pahse1);
     })
     .on("leave", function (event) {
       intro1.classList.add("hidden");
@@ -164,8 +107,8 @@ export default function initScroll() {
       if (scrollDirection === dir.forward) {
         headSprite1.classList.remove("visible");
         handleMorph();
-        drawLines();
-
+        // drawLines();
+        animateLines(lines.pahse1)
         isBrain = true;
       }
     })
@@ -174,7 +117,7 @@ export default function initScroll() {
       } else {
         headSprite1.classList.add("visible");
 
-        drawLines();
+        animateLines(lines.pahse1)
 
         handleMorph();
         isBrain = false;
@@ -187,15 +130,13 @@ export default function initScroll() {
     .setPin(intro.id4)
     .setClassToggle(intro.id4, "visible")
     .on("progress", ({ progress }) => {
-      lvl2left.seek(lvl2left.duration * progress);
-      lvl2right.seek(lvl2right.duration * progress);
+      setLinesProgress(lines.pahse2, progress);
     })
     .on("enter", function ({ scrollDirection }) {
       if (scrollDirection === dir.forward) {
 
       } else {
-        lvl2left.seek(lvl2left.duration);
-        lvl2right.seek(lvl2right.duration);
+        setLinesProgress(lines.pahse2, 1);
       }
 
     })
@@ -219,21 +160,22 @@ export default function initScroll() {
       else {
         headContainer.classList.remove("down");
         shapeContainer.classList.remove("down");
-        drawAll();
+        animateLines([...lines.pahse1, ...lines.pahse2]);
+
       }
     })
     .on("leave", function ({ scrollDirection }) {
       if (scrollDirection === dir.forward) {
         headContainer.classList.add("down");
         shapeContainer.classList.add("down");
-        drawAll();
+        animateLines([...lines.pahse1, ...lines.pahse2]);
+
       }
       else {
         headSprite2.classList.add("visible");
         headSprite3.classList.remove("visible");
         timelineLines.classList.add("unrevealed");
         pageHeader.classList.remove("navbar");
-
       }
     });
 
