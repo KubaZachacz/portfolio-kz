@@ -25,59 +25,66 @@ export default function initScroll() {
 
   let isBrain = false;
 
-  const animeRight = anime({
-    targets: "#lines-right path",
-    strokeDashoffset: [anime.setDashoffset, 0],
-    easing: "easeInOutSine",
-    duration: 2000,
-    delay: function(el, i) {
-      return i * 250;
-    },
-    autoplay: false
-  });
 
-  const animeLeft = anime({
-    targets: "#lines-left path",
-    strokeDashoffset: [anime.setDashoffset, 0],
+  const linesTargets = {
+    lvl1: [{ id: "lines-right", duration: 5400 }, { id: "lines-left", duration: 5400 }],
+    lvl2: [{ id: "lines-2-right", duration: 5400 }, { id: "lines-2-left", duration: 5400 }],
+  }
+
+  const drawBasicConfig = {
     easing: "easeInOutSine",
-    duration: 2000,
-    delay: function(el, i) {
+    strokeDashoffset: [anime.setDashoffset, 0],
+    delay: function (el, i) {
       return i * 200;
     },
     autoplay: false
-  });
+  }
 
-  const animeRight2 = anime({
-    targets: "#lines-2-right path",
-    strokeDashoffset: [anime.setDashoffset, 0],
-    easing: "easeInOutSine",
-    duration: 8000,
-    delay: function(el, i) {
-      return i * 400;
-    },
-    autoplay: false
-  });
+  const lvl1left = anime({
+    targets: `#lines-left path`,
+    duration: 1400,
+    ...drawBasicConfig
+  })
 
-  const animeLeft2 = anime({
-    targets: "#lines-2-left path",
-    strokeDashoffset: [anime.setDashoffset, 0],
-    easing: "easeInOutSine",
-    duration: 4000,
-    delay: function(el, i) {
-      return i * 400;
-    },
-    autoplay: false
-  });
+  const lvl1right = anime({
+    targets: `#lines-right path`,
+    duration: 2000,
+    ...drawBasicConfig
+  })
 
-  const handlePreLines = () => {
-    animeLeft.play();
-    animeRight.play();
-  };
+  const lvl2left = anime({
+    targets: `#lines-2-left path`,
+    duration: 1000,
+    ...drawBasicConfig
+  })
 
-  const handleLines = () => {
-    animeLeft2.play();
-    animeRight2.play();
-  };
+  const lvl2right = anime({
+    targets: `#lines-2-right path`,
+    duration: 1000,
+    ...drawBasicConfig
+  })
+
+  const drawLines = () => {
+    if (lvl1left.began || lvl1left.completed) {
+      lvl1left.reverse();
+      lvl1right.reverse();
+    }
+    lvl1left.play();
+    lvl1right.play();
+  }
+
+  const drawAll = () => {
+    if (lvl2left.began || lvl1left.completed) {
+      lvl1left.reverse();
+      lvl1right.reverse();
+      lvl2left.reverse();
+      lvl2right.reverse();
+    }
+    lvl1left.play();
+    lvl1right.play();
+    lvl2left.play();
+    lvl2right.play();
+  }
 
   const pulseCircle = anime({
     targets: "#base-circle",
@@ -121,14 +128,14 @@ export default function initScroll() {
     triggerElement: intro.id1
   })
     .setPin(intro.id1)
-    .on("enter", function(event) {
+    .on("enter", function (event) {
       intro1.classList.remove("hidden");
       headContainer.classList.add("scaled");
       shapeContainer.classList.add("scaled");
       pulseCircle.pause();
       pulseCircle.seek(0);
     })
-    .on("leave", function(event) {
+    .on("leave", function (event) {
       intro1.classList.add("hidden");
       headContainer.classList.remove("scaled");
       shapeContainer.classList.remove("scaled");
@@ -153,29 +160,26 @@ export default function initScroll() {
     .setPin(intro.id3)
     .setClassToggle(intro.id3, "visible")
 
-    .on("enter", function({ scrollDirection }) {
+    .on("enter", function ({ scrollDirection }) {
       if (scrollDirection === dir.forward) {
         headSprite1.classList.remove("visible");
-        // if (isBrain) morphBrain.reverse();
-        // morphBrain.play();
         handleMorph();
-        handlePreLines();
+        drawLines();
 
         isBrain = true;
       }
     })
-    .on("leave", function({ scrollDirection }) {
+    .on("leave", function ({ scrollDirection }) {
       if (scrollDirection === dir.forward) {
       } else {
         headSprite1.classList.add("visible");
-        // morphBrain.reverse();
-        // morphBrain.play();
+
+        drawLines();
+
         handleMorph();
         isBrain = false;
       }
     });
-
-  let prevProgress = 0;
 
   const stage4 = new ScrollMagic.Scene({
     triggerElement: intro.id4
@@ -183,57 +187,53 @@ export default function initScroll() {
     .setPin(intro.id4)
     .setClassToggle(intro.id4, "visible")
     .on("progress", ({ progress }) => {
-      if (Math.abs(progress - prevProgress) > 0.2) {
-        prevProgress = progress;
-        // singleParticlesAnimation();
-      } else {
-        // stopParticlesAnimation();
-      }
+      lvl2left.seek(lvl2left.duration * progress);
+      lvl2right.seek(lvl2right.duration * progress);
     })
-    .on("enter", function({ scrollDirection }) {
-      // singleParticlesAnimation();
-      handleLines();
-    })
-    .on("leave", function({ scrollDirection }) {
+    .on("enter", function ({ scrollDirection }) {
       if (scrollDirection === dir.forward) {
-        // startParticlesAnimation("fast");
+
+      } else {
+        lvl2left.seek(lvl2left.duration);
+        lvl2right.seek(lvl2right.duration);
+      }
+
+    })
+    .on("leave", function ({ scrollDirection }) {
+      if (scrollDirection === dir.forward) {
       }
     });
-  let endParticlesTimeout = null;
 
   const stage5 = new ScrollMagic.Scene({
     triggerElement: intro.id5
   })
     .setPin(intro.id5)
     .setClassToggle(intro.id5, "visible")
-    .on("enter", function({ scrollDirection }) {
+    .on("enter", function ({ scrollDirection }) {
       if (scrollDirection === dir.forward) {
         headSprite2.classList.remove("visible");
         headSprite3.classList.add("visible");
-      } else {
-        // startParticlesAnimation("fast");
+        timelineLines.classList.remove("unrevealed");
+        pageHeader.classList.add("navbar");
+      }
+      else {
         headContainer.classList.remove("down");
         shapeContainer.classList.remove("down");
-        pageHeader.classList.remove("navbar");
-        timelineLines.classList.add("unrevealed");
-
-        // clearTimeout(endParticlesTimeout);
+        drawAll();
       }
     })
-    .on("leave", function({ scrollDirection }) {
+    .on("leave", function ({ scrollDirection }) {
       if (scrollDirection === dir.forward) {
         headContainer.classList.add("down");
         shapeContainer.classList.add("down");
-        pageHeader.classList.add("navbar");
-        timelineLines.classList.remove("unrevealed");
-        // startParticlesAnimation("turbo");
-
-        // endParticlesTimeout = setTimeout(() => {
-        //   stopParticlesAnimation();
-        // }, 1400);
-      } else {
+        drawAll();
+      }
+      else {
         headSprite2.classList.add("visible");
         headSprite3.classList.remove("visible");
+        timelineLines.classList.add("unrevealed");
+        pageHeader.classList.remove("navbar");
+
       }
     });
 
