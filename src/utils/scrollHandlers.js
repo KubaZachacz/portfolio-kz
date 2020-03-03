@@ -42,13 +42,13 @@ export default function initScroll() {
 
   const lvl1left = anime({
     targets: `#lines-left path`,
-    duration: 1400,
+    duration: 1200,
     ...drawBasicConfig
   })
 
   const lvl1right = anime({
     targets: `#lines-right path`,
-    duration: 2000,
+    duration: 2200,
     ...drawBasicConfig
   })
 
