@@ -1,5 +1,8 @@
 <script>
+  import Item from "./Item.svelte";
+  import { portfolioItems } from "../portfolio/items";
 
+  console.log(portfolioItems);
 </script>
 
 <style>
@@ -42,12 +45,12 @@
       rgba(255, 97, 150, 1) 100%
     );
   }
-  .item {
+  /* .item {
     position: relative;
     padding: 100px 0;
     text-align: center;
     z-index: -15;
-  }
+  } */
 </style>
 
 <!-- <div id="timeline-lines" class="timeline-lines"> -->
@@ -56,7 +59,10 @@
   <div class="line creativity" />
 </div>
 <div style="height: 200px" />
-<div class="item">
+{#each portfolioItems as item}
+  <Item {...item} />
+{/each}
+<!-- <div class="item">
   <p>PIERWSZY ELEMENT</p>
 </div>
 <div class="item">
@@ -64,4 +70,4 @@
 </div>
 <div class="item">
   <p>CZECI ELEMENT</p>
-</div>
+</div> -->
