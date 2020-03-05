@@ -45,6 +45,9 @@
   .additional-text {
     font-weight: 300;
   }
+  #intro-5 {
+    background: white;
+  }
 </style>
 
 <div>
@@ -79,9 +82,11 @@
   <div style="height: 100px" />
   <section id="intro-5" class="showable">
     <p>
+      &#x1F525;
       <em>
         <strong>{$_('intro-5')}</strong>
       </em>
+      &#x1F525;
     </p>
   </section>
   <div style="height: 200px" />

@@ -55,6 +55,7 @@
   <div class="line technology" />
   <div class="line creativity" />
 </div>
+<div style="height: 200px" />
 <div class="item">
   <p>PIERWSZY ELEMENT</p>
 </div>

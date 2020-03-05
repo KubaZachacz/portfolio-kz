@@ -2,11 +2,14 @@ import ScrollMagic from "scrollmagic";
 import "scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators";
 import anime from "animejs/lib/anime.es.js";
 // import { animateParticles } from "./particlesAnimation";
-import { setupLineDrawHanlder } from './lineDrawHanlder'
+import { setupLineDrawHanlder } from "./lineDrawHanlder";
 import { morphCriclePath, morphBrainPath, intro, dir } from "./consts";
 import { reutrnElements } from "./DOMelements";
+import { setupHeadAnimation } from "./headAnimation";
 
 export default function initScroll() {
+  const { setSprite } = setupHeadAnimation();
+
   const {
     pageHeader,
     intro1,
@@ -69,18 +72,16 @@ export default function initScroll() {
     triggerElement: intro.id1
   })
     .setPin(intro.id1)
-    .on("enter", function (event) {
+    .on("enter", function(event) {
       intro1.classList.remove("hidden");
       headContainer.classList.add("scaled");
-      shapeContainer.classList.add("scaled");
       pulseCircle.pause();
       pulseCircle.seek(0);
       restartLinesProgress(lines.pahse1);
     })
-    .on("leave", function (event) {
+    .on("leave", function(event) {
       intro1.classList.add("hidden");
       headContainer.classList.remove("scaled");
-      shapeContainer.classList.remove("scaled");
       pulseCircle.play();
     });
 
@@ -102,19 +103,19 @@ export default function initScroll() {
     .setPin(intro.id3)
     .setClassToggle(intro.id3, "visible")
 
-    .on("enter", function ({ scrollDirection }) {
+    .on("enter", function({ scrollDirection }) {
       if (scrollDirection === dir.forward) {
-        headSprite1.classList.remove("visible");
+        setSprite(1);
         handleMorph();
-        animateLines(lines.pahse1)
+        animateLines(lines.pahse1);
         isBrain = true;
       }
     })
-    .on("leave", function ({ scrollDirection }) {
+    .on("leave", function({ scrollDirection }) {
       if (scrollDirection === dir.forward) {
       } else {
-        headSprite1.classList.add("visible");
-        animateLines(lines.pahse1)
+        setSprite(0);
+        animateLines(lines.pahse1);
 
         handleMorph();
         isBrain = false;
@@ -129,16 +130,17 @@ export default function initScroll() {
     .on("progress", ({ progress }) => {
       setLinesProgress(lines.pahse2, progress);
     })
-    .on("enter", function ({ scrollDirection }) {
+    .on("enter", function({ scrollDirection }) {
       if (scrollDirection === dir.forward) {
-
+        setSprite(0);
       } else {
         setLinesProgress(lines.pahse2, 1);
       }
-
     })
-    .on("leave", function ({ scrollDirection }) {
+    .on("leave", function({ scrollDirection }) {
       if (scrollDirection === dir.forward) {
+      } else {
+        setSprite(1);
       }
     });
 
@@ -147,30 +149,22 @@ export default function initScroll() {
   })
     .setPin(intro.id5)
     .setClassToggle(intro.id5, "visible")
-    .on("enter", function ({ scrollDirection }) {
+    .on("enter", function({ scrollDirection }) {
       if (scrollDirection === dir.forward) {
-        headSprite2.classList.remove("visible");
-        headSprite3.classList.add("visible");
+        setSprite(2);
         timelineLines.classList.remove("unrevealed");
         pageHeader.classList.add("navbar");
-      }
-      else {
+      } else {
         headContainer.classList.remove("down");
-        shapeContainer.classList.remove("down");
         animateLines([...lines.pahse1, ...lines.pahse2]);
-
       }
     })
-    .on("leave", function ({ scrollDirection }) {
+    .on("leave", function({ scrollDirection }) {
       if (scrollDirection === dir.forward) {
         headContainer.classList.add("down");
-        shapeContainer.classList.add("down");
         animateLines([...lines.pahse1, ...lines.pahse2]);
-
-      }
-      else {
-        headSprite2.classList.add("visible");
-        headSprite3.classList.remove("visible");
+      } else {
+        setSprite(0);
         timelineLines.classList.add("unrevealed");
         pageHeader.classList.remove("navbar");
       }
@@ -178,7 +172,8 @@ export default function initScroll() {
 
   controller.addScene([stage1, stage2, stage2b, stage3, stage4, stage5]);
 
-  stage1.triggerHook(0.25)
-  stage4.duration(1800)
-  stage5.duration(300)
+  stage1.triggerHook(0.25);
+  stage3.duration(900);
+  stage4.duration(2100);
+  stage5.duration(400);
 }
