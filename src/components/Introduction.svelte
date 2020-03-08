@@ -34,6 +34,8 @@
     margin: 0 auto;
     font-size: 20px;
     line-height: 2.4rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   }
   .actual-introduction {
     text-align: justify;

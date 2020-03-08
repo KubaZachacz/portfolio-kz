@@ -4,7 +4,7 @@ const src = {
 };
 
 const tags = {
-  prv: "private",
+  prv: "personal",
   pro: "professional",
   zrtx: "zortrax",
   akra: "akra",
@@ -13,18 +13,48 @@ const tags = {
   engineering: "engineering"
 };
 
+const tools = {
+  react: "React",
+  material: "Material UI",
+  svelte: "Svelte",
+  redux: "Redux",
+  inventor: "Autodesk Inventor",
+  illustrator: "Adobre Illustrator",
+  arduino: "Arduino"
+};
+
 export const portfolioItems = [
   {
     id: "portfolio-page",
-    minSrc: "portfolio.png",
     srcType: src.img,
+    minSrc: "portfolio.png",
+    // minSrc: "placeholder.jpg",
     src: "portfolio.png",
-    tags: [tags.prv, tags.graphic, tags.front]
+    tags: [tags.prv, tags.graphic, tags.front],
+    tools: [tools.svelte, tools.illustrator]
   },
   {
     id: "bastion-robot",
     srcType: src.video,
+    minSrc: "placeholder.jpg",
     src: "https://www.youtube.com/embed/TWDAUc1G264",
-    tags: [tags.prv, tags.engineering]
+    tags: [tags.prv, tags.engineering],
+    tools: [tools.inventor, tools.arduino]
+  },
+  {
+    id: "placeholder",
+    srcType: src.img,
+    minSrc: "placeholder.jpg",
+    src: "placeholder.jpg",
+    tags: [tags.prv, tags.engineering],
+    tools: [tools.inventor, tools.arduino]
+  },
+  {
+    id: "placeholder",
+    srcType: src.img,
+    minSrc: "placeholder.jpg",
+    src: "placeholder.jpg",
+    tags: [tags.prv, tags.engineering],
+    tools: [tools.inventor, tools.arduino]
   }
 ];
