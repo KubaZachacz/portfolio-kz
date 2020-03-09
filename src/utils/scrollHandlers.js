@@ -175,5 +175,5 @@ export default function initScroll() {
   stage1.triggerHook(0.25);
   stage3.duration(900);
   stage4.duration(2100);
-  stage5.duration(400).addIndicators();
+  stage5.duration(400);
 }

@@ -75,7 +75,7 @@
     width: 100%;
   }
 
-  .contact {
+  nav {
     position: absolute;
     top: 0;
     right: 0;
@@ -83,13 +83,27 @@
     margin: 16px;
     display: flex;
     justify-content: flex-end;
-    a {
+    a,
+    select {
       margin: 0 4px;
     }
     img {
       width: 32px;
     }
   }
+
+  // nav.mobile {
+  //   position: static;
+  //   display: none;
+  //   margin: 16px 0 0;
+  //   a,
+  //   select {
+  //     margin: 0 8px;
+  //   }
+  //   img {
+  //     width: 28px;
+  //   }
+  // }
 
   #lang-select {
     background: none;
@@ -99,32 +113,46 @@
   @media (max-width: 768px) {
     h1 {
       font-size: 40px;
-      margin: 8px 12px;
+      margin: 8px 0 16px;
     }
     h2 {
       font-size: 32px;
-      margin: 0 12px;
-    }
-    h1,
-    h2 {
-      left: 0;
-      transform: translateX(0);
     }
     :global(.navbar) {
       h1 {
         font-size: 30px;
+        margin: 0 12px 8px;
       }
       h2 {
         font-size: 18px;
+        margin: 0 12px;
       }
+    }
+    nav {
+      position: static;
+      margin: 16px 0 0;
+      a,
+      select {
+        margin: 0 8px;
+      }
+      img {
+        width: 28px;
+      }
+    }
+  }
+  @media (max-width: 375px) {
+    h1 {
+      font-size: 36px;
+      margin: 8px 0 12px;
+    }
+    h2 {
+      font-size: 28px;
     }
   }
 </style>
 
 <header id="page-header">
-  <h1>Kuba Zachacz</h1>
-  <h2>Frontend Developer</h2>
-  <div class="contact">
+  <nav class="mobile">
     <a href="https://github.com/KubaZachacz" title="github.com/KubaZachacz">
       <img src="images/icons/github.svg" alt="github icon" />
     </a>
@@ -135,5 +163,7 @@
       <option value="en">EN</option>
       <option value="pl">PL</option>
     </select>
-  </div>
+  </nav>
+  <h1>Kuba Zachacz</h1>
+  <h2>Frontend Developer</h2>
 </header>
