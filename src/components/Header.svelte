@@ -3,15 +3,27 @@
   import ScrollMagic from "scrollmagic";
   import { controller } from "../stores.js";
   import { _ } from "svelte-i18n";
+  import {
+    getLanguage,
+    setLanguage,
+    setLanguageOption
+  } from "../utils/languageHandlers";
+  import { setupLocale } from "../locale/setup";
 
   onMount(() => {
-
+    setLanguageOption(getLanguage());
   });
+
+  const handleHange = event => {
+    const lang = event.target.value;
+    setLanguage(lang);
+    setupLocale(lang);
+  };
 </script>
 
 <style lang="scss">
   header {
-    color: #002d8d;
+    color: var(--primary);
     background: rgb(255, 255, 255);
     background: linear-gradient(
       0deg,
@@ -30,26 +42,29 @@
     transform: translateX(-50%);
   }
   h1 {
-    font-size: 3.5rem;
-    margin: 1rem 0;
+    font-size: 56px;
+    margin: 16px 0;
   }
 
   h2 {
-    font-size: 3rem;
+    font-size: 48px;
     margin: 0 0;
   }
+
   :global(.navbar) {
+    padding-bottom: 30px;
     h1,
     h2 {
       left: 0;
       transform: translateX(0);
     }
     h1 {
-      font-size: 2rem;
-      margin: 0.25rem 0;
+      font-size: 32px;
+      margin: 12px 24px 4px 24px;
     }
     h2 {
-      font-size: 1.25rem;
+      font-size: 20px;
+      margin-left: 24px;
     }
   }
 
@@ -59,10 +74,66 @@
     left: 0;
     width: 100%;
   }
+
+  .contact {
+    position: absolute;
+    top: 0;
+    right: 0;
+    text-align: right;
+    margin: 16px;
+    display: flex;
+    justify-content: flex-end;
+    a {
+      margin: 0 4px;
+    }
+    img {
+      width: 32px;
+    }
+  }
+
+  #lang-select {
+    background: none;
+    border: none;
+  }
+
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 40px;
+      margin: 8px 12px;
+    }
+    h2 {
+      font-size: 32px;
+      margin: 0 12px;
+    }
+    h1,
+    h2 {
+      left: 0;
+      transform: translateX(0);
+    }
+    :global(.navbar) {
+      h1 {
+        font-size: 30px;
+      }
+      h2 {
+        font-size: 18px;
+      }
+    }
+  }
 </style>
 
 <header id="page-header">
   <h1>Kuba Zachacz</h1>
   <h2>Frontend Developer</h2>
-  <!-- <h2>{$_('title')}</h2> -->
+  <div class="contact">
+    <a href="https://github.com/KubaZachacz" title="github.com/KubaZachacz">
+      <img src="images/icons/github.svg" alt="github icon" />
+    </a>
+    <a href="mailto:zachacz.jakub@gmail.com" title="zachacz.jakub@gmail">
+      <img src="images/icons/email.svg" alt="email icon" />
+    </a>
+    <select name="lang" id="lang-select" on:change={handleHange}>
+      <option value="en">EN</option>
+      <option value="pl">PL</option>
+    </select>
+  </div>
 </header>

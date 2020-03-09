@@ -1,3 +1,8 @@
+:root {
+  --primary: rgb(0, 80, 160);
+  /* --primary: rgb(0, 100, 200); */
+}
+
 html,
 body {
   position: relative;
@@ -16,7 +21,7 @@ body {
 }
 
 a {
-  color: rgb(0, 100, 200);
+  color: var(--primary);
   text-decoration: none;
 }
 
@@ -25,24 +30,11 @@ a:hover {
 }
 
 a:visited {
-  color: rgb(0, 80, 160);
+  color: var(--primary);
 }
 
 label {
   display: block;
-}
-
-input,
-button,
-select,
-textarea {
-  font-family: inherit;
-  font-size: inherit;
-  padding: 0.4em;
-  margin: 0 0 0.5em 0;
-  box-sizing: border-box;
-  border: 1px solid #ccc;
-  border-radius: 2px;
 }
 
 input:disabled {
