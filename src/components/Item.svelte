@@ -1,5 +1,6 @@
 <script>
   import { _ } from "svelte-i18n";
+  export let index;
   export let id;
   export let srcType;
   export let src;
@@ -12,16 +13,17 @@
   .item-container {
     width: 100%;
     display: flex;
-    &:nth-of-type(even) {
-      justify-content: flex-end;
-      .dynks {
+  }
+
+  .right {
+    justify-content: flex-end;
+    .dynks {
+      background: rgba(255, 20, 99, 1);
+      left: 0;
+      &:after {
+        right: unset;
+        left: -12px;
         background: rgba(255, 20, 99, 1);
-        left: 0;
-        &:after {
-          right: unset;
-          left: -12px;
-          background: rgba(255, 20, 99, 1);
-        }
       }
     }
   }
@@ -37,17 +39,22 @@
   .item {
     display: flex;
     flex-direction: column;
-    // width: 45%;
     width: 100%;
     max-width: 500px;
     overflow: hidden;
     background: white;
-    box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
-      0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+    box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2),
+      0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
     border-radius: 4px;
+    transition: all 0.2s;
     img,
     iframe {
       width: 100%;
+    }
+    &:hover {
+      box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
+        0px 6px 10px 0px rgba(0, 0, 0, 0.14),
+        0px 1px 18px 0px rgba(0, 0, 0, 0.12);
     }
   }
 
@@ -110,7 +117,8 @@
     width: 50%;
     height: 4px;
     background: rgba(89, 133, 255, 1);
-    top: 50%;
+    // top: 50%;
+    bottom: 25%;
     right: 0;
     z-index: -1;
     &:after {
@@ -127,7 +135,7 @@
   }
 </style>
 
-<div class="item-container">
+<div class="item-container" class:right={index % 2 != 0}>
   <div class="item-column">
     <div class="item">
       <div
