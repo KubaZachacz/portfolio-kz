@@ -14,6 +14,15 @@
     display: flex;
     &:nth-of-type(even) {
       justify-content: flex-end;
+      .dynks {
+        background: rgba(255, 20, 99, 1);
+        left: 0;
+        &:after {
+          right: unset;
+          left: -12px;
+          background: rgba(255, 20, 99, 1);
+        }
+      }
     }
   }
 
@@ -100,10 +109,21 @@
     position: absolute;
     width: 50%;
     height: 4px;
-    background: blue;
+    background: rgba(89, 133, 255, 1);
     top: 50%;
     right: 0;
     z-index: -1;
+    &:after {
+      content: "";
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      // transform: translate(-50%,-50%);
+      top: -8px;
+      right: -12px;
+      background: rgba(89, 133, 255, 1);
+      border-radius: 50%;
+    }
   }
 </style>
 
@@ -130,6 +150,6 @@
         <a href="#">{$_('readMore')}</a>
       </div>
     </div>
-    <!-- <div class="dynks" /> -->
+    <div class="dynks" />
   </div>
 </div>
