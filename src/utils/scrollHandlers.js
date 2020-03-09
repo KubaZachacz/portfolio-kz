@@ -162,7 +162,7 @@ export default function initScroll() {
     .on("leave", function({ scrollDirection }) {
       if (scrollDirection === dir.forward) {
         headContainer.classList.add("down");
-        animateLines([...lines.pahse1, ...lines.pahse2]);
+        animateLines([...lines.pahse1, ...lines.pahse2], true);
       } else {
         setSprite(0);
         timelineLines.classList.add("unrevealed");

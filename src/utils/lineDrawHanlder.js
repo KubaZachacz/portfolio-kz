@@ -13,32 +13,32 @@ const BASIC_CONFIG = {
 export const setupLineDrawHanlder = () => {
 
   const lines = {
-    pahse1: [ anime({
-        ...BASIC_CONFIG,
-        targets: `#lines-left path`,
-        duration: 1200,
-      }),
-      anime({
-        ...BASIC_CONFIG,
-        targets: `#lines-right path`,
-        duration: 2200,
-      }),
+    pahse1: [anime({
+      ...BASIC_CONFIG,
+      targets: `#lines-left path`,
+      duration: 1200,
+    }),
+    anime({
+      ...BASIC_CONFIG,
+      targets: `#lines-right path`,
+      duration: 2200,
+    }),
     ],
-    pahse2: [ anime({
-        ...BASIC_CONFIG,
-        targets: `#lines-2-left path`,
-      }),
-      anime({
-        ...BASIC_CONFIG,
-        targets: `#lines-2-right path`,
-        duration: 1000,
-      }),
+    pahse2: [anime({
+      ...BASIC_CONFIG,
+      targets: `#lines-2-left path`,
+    }),
+    anime({
+      ...BASIC_CONFIG,
+      targets: `#lines-2-right path`,
+      duration: 1000,
+    }),
     ]
   }
 
-  const animateLines = (animations = []) => {
+  const animateLines = (animations = [], isReversed = false) => {
     for (let anim of animations) {
-      if (anim.began || anim.completed) {
+      if (isReversed || anim.began || anim.completed) {
         anim.reverse();
       }
       anim.play();
