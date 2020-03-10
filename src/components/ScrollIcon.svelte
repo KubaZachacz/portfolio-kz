@@ -1,10 +1,11 @@
 <style lang="scss">
   $color: #000000;
-
+  $iconWidth: 24px;
+  $iconHeight: 1.75 * $iconWidth;
+  
   .icon-scroll {
     position: relative;
-    margin: 8px auto;
-    transform: scale(0.6);
+    margin: 4px auto;
   }
   .icon-scroll:before {
     position: absolute;
@@ -12,22 +13,21 @@
   }
 
   .icon-scroll {
-    width: 40px;
-    height: 70px;
+    width: $iconWidth;
+    height: $iconHeight;
     top: 50%;
-    // box-shadow: inset 0 0 0 1px $color;
-    box-shadow: 0 0 4px 1px #00000070, 0 0 1px 1px #000000;
-    border-radius: 25px;
+    box-shadow: inset 0 0 0 1px $color, 0 0 4px 1px rgba($color, 0.2);
+    border-radius: calc(0.5 * #{$iconWidth});;
   }
 
   .icon-scroll:before {
     content: "";
-    width: 8px;
-    height: 8px;
+    width: 6px;
+    height: 6px;
     background: $color;
-    margin-left: -4px;
+    margin-left: -3px;
     top: 8px;
-    border-radius: 4px;
+    border-radius: 50%;
     animation-duration: 1.5s;
     animation-iteration-count: infinite;
     animation-name: scroll;
@@ -39,8 +39,8 @@
     }
     100% {
       opacity: 0;
-      -webkit-transform: translateY(46px);
-      transform: translateY(46px);
+      -webkit-transform: translateY(calc(#{$iconHeight} - 24px));
+      transform: translateY(calc(#{$iconHeight} - 24px));
     }
   }
 </style>
