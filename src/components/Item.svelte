@@ -13,27 +13,74 @@
   .item-container {
     width: 100%;
     display: flex;
+    justify-content: center;
+
+    @media (min-width: 1300px) {
+      justify-content: left;
+    }
   }
 
   .right {
-    justify-content: flex-end;
+    @media (min-width: 1300px) {
+      justify-content: flex-end;
+    }
     .dynks {
       background: rgba(255, 20, 99, 1);
       left: 0;
       &:after {
-        right: unset;
-        left: -12px;
         background: rgba(255, 20, 99, 1);
+        @media (min-width: 1300px) {
+          right: unset;
+          left: -12px;
+        }
+      }
+    }
+  }
+
+  .dynks {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    background: rgba(89, 133, 255, 1);
+
+    @media (min-width: 1300px) {
+      width: 50%;
+      height: 4px;
+      top: unset;
+      bottom: 25%;
+      z-index: -1;
+      right: 0;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      top: -8px;
+      background: rgba(89, 133, 255, 1);
+      border-radius: 50%;
+      left: 50%;
+      transform: translate(-50%, -30%);
+
+      @media (min-width: 1300px) {
+        right: -12px;
+        left: unset;
+        transform: none;
       }
     }
   }
 
   .item-column {
     position: relative;
-    margin-top: -10%;
-    width: 50%;
     display: flex;
     justify-content: center;
+    margin-top: 40px;
+    width: 100%;
+    @media (min-width: 1300px) {
+      margin-top: -10%;
+      width: 50%;
+    }
   }
 
   .item {
@@ -82,7 +129,6 @@
   .tags {
     margin: 0;
     font-size: 0.9rem;
-    // font-weight: 300;
   }
 
   .tools {
@@ -91,17 +137,11 @@
   }
 
   .miniature-placeholder {
-    // width: 240px;
-    // height: 200px;
     width: 100%;
     height: 300px;
-    // border-radius: 50%;
-    // border-radius: 10px;
     background-position: center;
     background-repeat: no-repeat;
-    // background-size: 125%;
     background-size: cover;
-    // box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
   }
 
@@ -110,28 +150,6 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-  }
-
-  .dynks {
-    position: absolute;
-    width: 50%;
-    height: 4px;
-    background: rgba(89, 133, 255, 1);
-    // top: 50%;
-    bottom: 25%;
-    right: 0;
-    z-index: -1;
-    &:after {
-      content: "";
-      position: absolute;
-      width: 24px;
-      height: 24px;
-      // transform: translate(-50%,-50%);
-      top: -8px;
-      right: -12px;
-      background: rgba(89, 133, 255, 1);
-      border-radius: 50%;
-    }
   }
 </style>
 

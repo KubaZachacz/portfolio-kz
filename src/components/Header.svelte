@@ -100,9 +100,7 @@
     background-size: auto 30%;
     border-radius: 2px;
     border: none;
-    // color: #ffffff;
     padding: 10px 30px 10px 10px;
-    // disable default appearance
     outline: none;
     -moz-appearance: none;
     -webkit-appearance: none;
@@ -150,15 +148,43 @@
     h2 {
       font-size: 28px;
     }
+    :global(.navbar) {
+      h1 {
+        font-size: 24px;
+        margin: 0 12px 8px;
+      }
+      h2 {
+        font-size: 16px;
+        margin: 0 12px;
+      }
+    }
+    nav {
+      position: static;
+      margin: 12px 0 0;
+      a,
+      select {
+        margin: 0 6px;
+      }
+      img {
+        width: 24px;
+      }
+    }
   }
 </style>
 
 <header id="page-header">
   <nav class="mobile">
-    <a href="https://github.com/KubaZachacz" title="github.com/KubaZachacz" aria-label="github.com/KubaZachacz" tabindex="1">
+    <a
+      href="https://github.com/KubaZachacz"
+      title="github.com/KubaZachacz"
+      aria-label="github.com/KubaZachacz"
+      tabindex="1">
       <img src="images/icons/github.svg" alt="github icon" />
     </a>
-    <a href="mailto:zachacz.jakub@gmail.com" title="zachacz.jakub@gmail.com" aria-label="zachacz.jakub@gmail.com">
+    <a
+      href="mailto:zachacz.jakub@gmail.com"
+      title="zachacz.jakub@gmail.com"
+      aria-label="zachacz.jakub@gmail.com">
       <img src="images/icons/email.svg" alt="email icon" />
     </a>
     <select name="lang" id="lang-select" on:change={handleHange}>
