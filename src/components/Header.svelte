@@ -39,7 +39,7 @@
     width: fit-content;
     position: relative;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, 36px);
   }
   h1 {
     font-size: 56px;
@@ -98,10 +98,8 @@
     background-position: right 10px center;
     background-repeat: no-repeat;
     background-size: auto 30%;
-    border-radius: 2px;
     border: none;
-    padding: 10px 30px 10px 10px;
-    outline: none;
+    padding: 0 26px 0 6px;
     -moz-appearance: none;
     -webkit-appearance: none;
     appearance: none;
@@ -118,10 +116,14 @@
     h2 {
       font-size: 32px;
     }
+    h2,
+    h1 {
+      transform: translate(-50%, 48px);
+    }
     :global(.navbar) {
       h1 {
         font-size: 30px;
-        margin: 0 12px 8px;
+        margin: 8px 12px 8px;
       }
       h2 {
         font-size: 18px;
@@ -129,7 +131,6 @@
       }
     }
     nav {
-      position: static;
       margin: 16px 0 0;
       a,
       select {
@@ -151,16 +152,12 @@
     :global(.navbar) {
       h1 {
         font-size: 24px;
-        margin: 0 12px 8px;
       }
       h2 {
         font-size: 16px;
-        margin: 0 12px;
       }
     }
     nav {
-      position: static;
-      margin: 12px 0 0;
       a,
       select {
         margin: 0 6px;
