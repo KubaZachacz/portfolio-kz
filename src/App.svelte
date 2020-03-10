@@ -1,9 +1,10 @@
 <script>
   import { onMount } from "svelte";
+  import Modal from "svelte-simple-modal";
   import Header from "./components/Header.svelte";
   import Introduction from "./components/Introduction.svelte";
   import Head from "./components/Head.svelte";
-  import Timeline from './components/Timeline.svelte'
+  import Timeline from "./components/Timeline.svelte";
   import initScroll from "./utils/scrollHandlers";
   import { setupLocale } from "./locale/setup";
 
@@ -29,5 +30,7 @@
   <Head />
   <Introduction />
   <div style="height: 300px" />
-  <Timeline />
+  <Modal>
+    <Timeline />
+  </Modal>
 </main>

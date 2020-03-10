@@ -1,5 +1,7 @@
 <script>
   import { _ } from "svelte-i18n";
+  import { getContext } from "svelte";
+  import DetailsModal from "./DetailsModal.svelte";
   export let index;
   export let id;
   export let srcType;
@@ -7,6 +9,15 @@
   export let minSrc;
   export let tags;
   export let tools;
+
+  const description = $_(`${id}.description`);
+  const title = $_(`${id}.title`);
+
+  const { open } = getContext("simple-modal");
+  const showDetails = event => {
+    event.preventDefault();
+    open(DetailsModal, { title, description, srcType, src, tags, tools });
+  };
 </script>
 
 <style lang="scss">
@@ -157,6 +168,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+    cursor: pointer;
     @media (min-width: 425px) {
       height: 300px;
     }
@@ -175,6 +187,7 @@
     <div class="item">
       <div
         class="miniature-placeholder"
+        on:click={showDetails}
         style="background-image: url({`images/portfolio/${minSrc}`})" />
       <div class="content">
         <p class="tags">
@@ -190,7 +203,7 @@
           {/each}
         </p>
         <p class="description">{$_(`${id}.description`)}</p>
-        <a href="#">{$_('readMore')}</a>
+        <a href="#" on:click={showDetails} role="button">{$_('readMore')}</a>
       </div>
     </div>
     <div class="dynks" />
