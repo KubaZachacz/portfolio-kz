@@ -12,5 +12,5 @@ export const setLanguage = (value) => {
 
 export const setLanguageOption = (value) => {
   const langSelect = document.getElementById("lang-select");
-  if (value) langSelect.value = value;
+  if (value && langSelect) langSelect.value = value;
 }

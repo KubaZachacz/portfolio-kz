@@ -92,19 +92,6 @@
     }
   }
 
-  // nav.mobile {
-  //   position: static;
-  //   display: none;
-  //   margin: 16px 0 0;
-  //   a,
-  //   select {
-  //     margin: 0 8px;
-  //   }
-  //   img {
-  //     width: 28px;
-  //   }
-  // }
-
   #lang-select {
     background: none;
     border: none;
@@ -156,7 +143,7 @@
     <a href="https://github.com/KubaZachacz" title="github.com/KubaZachacz">
       <img src="images/icons/github.svg" alt="github icon" />
     </a>
-    <a href="mailto:zachacz.jakub@gmail.com" title="zachacz.jakub@gmail">
+    <a href="mailto:zachacz.jakub@gmail.com" title="zachacz.jakub@gmail.com">
       <img src="images/icons/email.svg" alt="email icon" />
     </a>
     <select name="lang" id="lang-select" on:change={handleHange}>

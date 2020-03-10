@@ -3,6 +3,13 @@
   import ScrollMagic from "scrollmagic";
   import ScrollIcon from "./ScrollIcon.svelte";
   import { _ } from "svelte-i18n";
+  import { viewedFlag } from "../store/store";
+
+  let wasTimelineViewd;
+
+  const unsubscribe = viewedFlag.subscribe(value => {
+    wasTimelineViewd = value;
+  });
 
   onMount(() => {});
 </script>
@@ -46,6 +53,7 @@
   }
   .additional-text {
     font-weight: 300;
+    font-style: italic;
   }
   #intro-5 {
     background: white;
@@ -54,8 +62,13 @@
 
 <div>
   <section id="intro-1" class="hidable">
+    <p>{$_('intro-1')}</p>
     <p>
-      {$_('intro-1')}
+      {#if wasTimelineViewd}
+        <a href="#timeline">{$_('intro-1-b')}</a>
+      {/if}
+    </p>
+    <p>
       <ScrollIcon />
     </p>
   </section>
@@ -78,7 +91,11 @@
       <em>{$_('intro-4')}</em>
     </p>
     <p class="additional-text">
-      <em>{$_('intro-4-b')}</em>
+      {#if wasTimelineViewd}
+        {$_('intro-4-c')}
+      {:else}
+        {$_('intro-4-b')}
+      {/if}
     </p>
   </section>
   <div style="height: 100px" />
