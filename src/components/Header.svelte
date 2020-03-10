@@ -1,7 +1,6 @@
 <script>
   import { onMount } from "svelte";
   import ScrollMagic from "scrollmagic";
-  import { controller } from "../stores.js";
   import { _ } from "svelte-i18n";
   import {
     getLanguage,
