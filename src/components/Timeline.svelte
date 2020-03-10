@@ -34,6 +34,7 @@
     height: 100%;
     margin: 0 2px;
   }
+
   .technology {
     background: rgb(45, 67, 128);
     background: linear-gradient(
@@ -43,6 +44,7 @@
       rgba(166, 190, 255, 1) 100%
     );
   }
+
   .creativity {
     background: rgb(128, 10, 49);
     background: linear-gradient(
@@ -52,10 +54,12 @@
       rgba(255, 97, 150, 1) 100%
     );
   }
+
   .year-wrapper {
     width: 100%;
     display: flex;
     justify-content: center;
+    margin-top: 48px;
     .year {
       background: white;
       padding: 4px 16px;
@@ -67,25 +71,20 @@
   }
 </style>
 
-<div id="timeline-lines" class="timeline-lines unrevealed">
-  <div class="line technology" />
-  <div class="line creativity" />
-</div>
-<div />
-<div id="timeline" style="height: 200px" />
-{#each renderItems as item}
-  {#if typeof item === 'number'}
-    <div class="year-wrapper">
-      <div class="year">&#8226;{item}&#8226;</div>
-      <!-- <div class="year">&#x2728;{item}&#x2728;</div> -->
-    </div>
-  {:else}
-    <Item {...item} />
-  {/if}
-{/each}
-<!-- {#each portfolioItems as yearGroup}
-  <div>{yearGroup.year}</div>
-  {#each yearGroup.items as item, i}
-    <Item {...item} />
+<div class="timeline-wrapper">
+  <div id="timeline-lines" class="timeline-lines unrevealed">
+    <div class="line technology" />
+    <div class="line creativity" />
+  </div>
+  <div />
+  <div id="timeline" style="height: 200px" />
+  {#each renderItems as item}
+    {#if typeof item === 'number'}
+      <div class="year-wrapper">
+        <div class="year">&#8226;{item}&#8226;</div>
+      </div>
+    {:else}
+      <Item {...item} />
+    {/if}
   {/each}
-{/each} -->
+</div>
