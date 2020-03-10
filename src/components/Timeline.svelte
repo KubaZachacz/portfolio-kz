@@ -54,7 +54,6 @@
       rgba(255, 97, 150, 1) 100%
     );
   }
-
   .year-wrapper {
     width: 100%;
     display: flex;
