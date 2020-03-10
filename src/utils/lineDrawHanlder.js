@@ -27,11 +27,11 @@ export const setupLineDrawHanlder = () => {
     pahse2: [anime({
       ...BASIC_CONFIG,
       targets: `#lines-2-left path`,
+      duration: 500,
     }),
     anime({
       ...BASIC_CONFIG,
       targets: `#lines-2-right path`,
-      duration: 1000,
     }),
     ]
   }

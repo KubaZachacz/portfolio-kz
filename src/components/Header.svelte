@@ -93,8 +93,23 @@
   }
 
   #lang-select {
-    background: none;
+    background-color: transparent;
+    background-image: url("data:image/svg+xml;utf8,<svg version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' width='255px' height='255px' viewBox='0 0 255 255' style='enable-background:new 0 0 255 255;' xml:space='preserve'> <g id='arrow-drop-down'> <polygon points='0,63.75 127.5,191.25 255,63.75'/></g></svg>");
+    background-position: right 10px center;
+    background-repeat: no-repeat;
+    background-size: auto 30%;
+    border-radius: 2px;
     border: none;
+    // color: #ffffff;
+    padding: 10px 30px 10px 10px;
+    // disable default appearance
+    outline: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    &::-ms-expand {
+      display: none;
+    }
   }
 
   @media (max-width: 768px) {
@@ -140,10 +155,10 @@
 
 <header id="page-header">
   <nav class="mobile">
-    <a href="https://github.com/KubaZachacz" title="github.com/KubaZachacz">
+    <a href="https://github.com/KubaZachacz" title="github.com/KubaZachacz" aria-label="github.com/KubaZachacz" tabindex="1">
       <img src="images/icons/github.svg" alt="github icon" />
     </a>
-    <a href="mailto:zachacz.jakub@gmail.com" title="zachacz.jakub@gmail.com">
+    <a href="mailto:zachacz.jakub@gmail.com" title="zachacz.jakub@gmail.com" aria-label="zachacz.jakub@gmail.com">
       <img src="images/icons/email.svg" alt="email icon" />
     </a>
     <select name="lang" id="lang-select" on:change={handleHange}>

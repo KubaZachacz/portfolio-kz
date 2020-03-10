@@ -63,6 +63,11 @@ button:focus {
   border-color: #666;
 }
 
+a:focus, select:focus {
+  outline: 1px solid var(--primary) !important;
+  outline-offset: 1px;
+}
+
 /* body {
   -ms-overflow-style: none; 
   scrollbar-width: none;  

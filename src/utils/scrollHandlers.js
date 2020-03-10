@@ -15,10 +15,6 @@ export default function initScroll() {
     pageHeader,
     intro1,
     headContainer,
-    shapeContainer,
-    headSprite1,
-    headSprite2,
-    headSprite3,
     timelineLines
   } = reutrnElements();
 
