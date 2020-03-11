@@ -13,7 +13,7 @@
   const description = $_(`${id}.description`);
   const title = $_(`${id}.title`);
 
-  const { open } = getContext("simple-modal");
+  const { open } = getContext("details-modal");
   const showDetails = event => {
     event.preventDefault();
     open(DetailsModal, { title, description, srcType, src, tags, tools });

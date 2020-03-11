@@ -32,7 +32,7 @@ export const portfolioItems = [
         srcType: src.img,
         minSrc: "portfolio.png",
         // minSrc: "placeholder.jpg",
-        src: "portfolio.png",
+        src: ["portfolio.png", "placeholder2.png", "placeholder.jpg", "baner-1.jpg"],
         tags: [tags.prv, tags.graphic, tags.front],
         tools: [tools.svelte, tools.illustrator]
       },

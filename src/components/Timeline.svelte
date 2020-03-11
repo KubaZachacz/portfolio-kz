@@ -1,5 +1,5 @@
 <script>
-  import Item from "./Item.svelte";
+  import Item from "./Item/Item.svelte";
   import { portfolioItems } from "../portfolio/items";
   let counter = 0;
   const renderItems = [];

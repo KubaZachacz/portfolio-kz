@@ -30,7 +30,9 @@
   <Head />
   <Introduction />
   <div style="height: 300px" />
-  <Modal>
+  <Modal
+    key="details-modal"
+    styleWindow={{ width: '95vw', minWidth: '300px', height: '95vh', minHeight: '300px' }}>
     <Timeline />
   </Modal>
 </main>
