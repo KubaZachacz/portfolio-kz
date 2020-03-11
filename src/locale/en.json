@@ -23,5 +23,6 @@
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum laoreet tempor vestibulum. Cras sed purus cursus, egestas ex ut, dapibus dui. Aenean ultrices turpis in dolor cursus, in euismod mi blandit. Duis ut tincidunt libero, eu laoreet leo. Aenean id nibh fringilla, porttitor enim et, convallis ex. ",
     "alt": "Robotic arm video"
   },
-  "tools": "Main tools"
+  "tools": "Main tools",
+  "resizePreview": "Resize preview"
 }

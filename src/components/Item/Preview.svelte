@@ -7,25 +7,19 @@
 
 <style lang="scss">
   .item-prview {
-    // border: 1px solid #eee;
     display: flex;
     flex-direction: column;
+
+    iframe {
+      margin: 0 auto;
+    }
   }
 
-  .item-prview header {
+  .preview-image {
     flex: 1;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-  }
-
-  .preview-zoom {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-size: cover;
   }
 </style>
 
@@ -33,15 +27,15 @@
   {#if src.includes('youtube')}
     <iframe
       title="video"
-      width="560"
-      height="315"
+      width="80%"
+      height="100%"
       {src}
       frameborder="0"
       allow="accelerometer; autoplay; encrypted-media; gyroscope;
       picture-in-picture"
       allowfullscreen />
   {:else}
-    <header
+    <div class="preview-image"
       style={`background-image: url(${baseURL}${src})`} />
   {/if}
 </div>

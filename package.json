@@ -27,6 +27,7 @@
     "color": "^3.1.2",
     "gsap": "^3.1.1",
     "scrollmagic": "^2.0.7",
+    "siema": "^1.5.1",
     "sirv-cli": "^0.4.4",
     "svelte-i18n": "^3.0.1",
     "svelte-simple-modal": "^0.3.0"

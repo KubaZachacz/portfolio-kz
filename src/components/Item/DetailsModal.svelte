@@ -1,6 +1,7 @@
 <script>
   import { onMount } from "svelte";
-  import Carousel from "@beyonk/svelte-carousel";
+  import { _ } from "svelte-i18n";
+  import Carousel from "./Carousel.svelte";
   import {
     ChevronLeftIcon,
     ChevronRightIcon,
@@ -23,7 +24,7 @@
 
   const onZoom = () => {
     isZoom = !isZoom;
-    setPreviewHeight(isZoom ? 0.9 * modalHeight : defaultHeight);
+    setPreviewHeight(isZoom ? 0.95 * modalHeight : defaultHeight);
   };
 
   const setPreviewHeight = height => {
@@ -42,19 +43,14 @@
 </script>
 
 <style lang="scss">
-  $icon-color: rgb(212, 212, 212);
+  $icon-color: #ffffff;
+  // $icon-color: #333333;
+
   .details-modal {
     width: 100%;
     height: 100%;
   }
 
-  .control :global(svg) {
-    width: 100%;
-    height: 100%;
-    color: $icon-color;
-    border: 2px solid $icon-color;
-    border-radius: 32px;
-  }
   .gallery-wrapper {
     position: relative;
   }
@@ -66,29 +62,52 @@
     color: $icon-color;
     cursor: pointer;
     mix-blend-mode: difference;
-    opacity: 0.6;
+    opacity: 0.7;
+  }
+  .content {
+    padding: 16px;
+  }
+
+  h3 {
+    font-weight: 400;
+    font-size: 1.5rem;
+    line-height: 1.334;
+    letter-spacing: 0em;
+    margin: 0;
+  }
+
+  h4 {
+    font-weight: 500;
+  }
+
+  p {
+    margin: 0;
+    margin-bottom: 4px;
+  }
+
+  .tags {
+    margin: 0 0 8px 0;
+    font-size: 0.9rem;
+  }
+
+  .tools {
+    list-style-position: inside;
+    margin: 0 0 8px 0;
   }
 </style>
 
 <div id="details" class="details-modal">
-  <h3>{title}</h3>
   <div class="gallery-wrapper">
     {#if Array.isArray(src)}
       <Carousel perPage={1}>
-        <span class="control" slot="left-control">
-          <ChevronLeftIcon />
-        </span>
         {#each src as srcUrl}
           <Preview src={srcUrl} />
         {/each}
-        <span class="control" slot="right-control">
-          <ChevronRightIcon />
-        </span>
       </Carousel>
     {:else}
       <Preview {src} />
     {/if}
-    <span class="zoom-control" title="Resize gallery" on:click={onZoom}>
+    <span class="zoom-control" title={$_('resizePreview')} on:click={onZoom}>
       {#if isZoom}
         <MinimizeIcon />
       {:else}
@@ -96,5 +115,19 @@
       {/if}
     </span>
   </div>
-  <p>{description}</p>
+  <div class="content">
+    <h3>{title}</h3>
+    <p class="tags">
+      {#each tags as tag}
+        <span>#{tag}{' '}</span>
+      {/each}
+    </p>
+    <p class="tools">
+      {$_('tools')}:
+      {#each tools as tool, i}
+        <li class="tool">{tool}</li>
+      {/each}
+    </p>
+    <p class="description">{description}</p>
+  </div>
 </div>
