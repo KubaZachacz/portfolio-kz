@@ -1,11 +1,19 @@
 {
-    "intro-1": "Przewijaj w dół aby uzyskać więcej informacji.",
-    "intro-1-b": "Skocz do linii czasu",
-    "intro-2": "Cześć, jestem Kuba - front-end developer z inżynieryjnym doświadczeniem. Pomyślałem, że w końcu nastał czas, żeby zebrać i opublikować w jednym miejscu niektóre z moich projektów.",
-    "intro-2-b": "Dlatego tu jesteś, na tej nie do końca poważnej stronie",
-    "intro-3": "Czekaj, co się właściwie dzieje?!",
-    "intro-4": "OK, wiem! Przewijaj szybciej, żeby dostać się do osi czasu projektów.",
-    "intro-4-b": "Następnym razem będzie łatwiej, obiecuję!",
-    "intro-4-c": "Wiesz, że mogłeś to pominąć?",
-    "intro-5": "To działa!"
+  "intro": {
+    "1": "Przewijaj w dół aby uzyskać więcej informacji.",
+    "1-b": "Skocz do linii czasu",
+    "2": "Cześć, jestem Kuba - Frontend Developer z dodatkowym inżynieryjnym doświadczeniem. W końcu nastał czas, żeby zebrać i opublikować w jednym miejscu niektóre z moich przeróżnych projektów.",
+    "2-b": "Dlatego tu jesteś, na tej trochę niepoważnej stronie",
+    "3": "Czekaj, co się właściwie dzieje?!",
+    "4": "OK, wiem! Przewijaj szybciej, żeby dostać się do osi czasu projektów.",
+    "4-b": "Następnym razem będzie łatwiej, obiecuję!",
+    "4-c": "Ale wiesz, że mogłeś to pominąć?",
+    "5": "To działa!"
+  },
+  "tools": "Narzędzia",
+  "icon-title": {
+    "img": "Otwórz podgląd",
+    "gallery": "Otwórz galerię",
+    "video": "Otwórz wideo"
+  }
 }
