@@ -47,7 +47,6 @@
 
 <style lang="scss">
   $icon-color: #ffffff;
-  // $icon-color: #333333;
 
   .details-modal {
     width: 100%;

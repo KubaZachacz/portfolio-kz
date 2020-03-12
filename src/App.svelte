@@ -32,7 +32,7 @@
   <div style="height: 300px" />
   <Modal
     key="details-modal"
-    styleWindow={{ width: 'auto', minWidth: '300px', height: 'auto', minHeight: '400px' }}>
+    styleWindow={{ width: 'auto', minWidth: '300px', height: '95vh', minHeight: '400px' }}>
     <Timeline />
   </Modal>
 </main>
