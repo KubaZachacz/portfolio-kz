@@ -4,7 +4,8 @@
   import Header from "./components/Header.svelte";
   import Introduction from "./components/Introduction.svelte";
   import Head from "./components/Head.svelte";
-  import Timeline from "./components/Timeline.svelte";
+  import TimelineLines from "./components/Timeline/TimelineLines.svelte";
+  import TimelineItems from "./components/Timeline/TimelineItems.svelte";
   import initScroll from "./utils/scrollHandlers";
   import { setupLocale } from "./locale/setup";
 
@@ -27,13 +28,14 @@
 
 <Header />
 <main>
+  <TimelineLines />
   <Head />
   <Introduction />
-  <div style="height: 300px" />
+  <div style="height: 50px" />
   <Modal
     key="details-modal"
-    styleWindow={{ width: 'auto', minWidth: '300px', height: '95vh', minHeight: '400px', margin: 0 }}
+    styleWindow={{ width: 'auto', height: '95vh', margin: 0 }}
     styleContent={{ maxHeight: 'unset' }}>
-    <Timeline />
+    <TimelineItems />
   </Modal>
 </main>

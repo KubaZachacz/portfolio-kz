@@ -11,12 +11,7 @@ import { viewedFlag } from "../store/store";
 export default function initScroll() {
   const { setSprite } = setupHeadAnimation();
 
-  const {
-    pageHeader,
-    intro1,
-    headContainer,
-    timelineLines
-  } = reutrnElements();
+  const { pageHeader, intro1, headContainer, timelineLines } = reutrnElements();
 
   const timelineViewdHandler = () => {
     viewedFlag.set(true);
@@ -24,7 +19,7 @@ export default function initScroll() {
     if (typeof Storage !== "undefined") {
       localStorage.setItem("wasViewed", true);
     }
-  }
+  };
 
   const {
     lines,
@@ -67,7 +62,7 @@ export default function initScroll() {
 
   const controller = new ScrollMagic.Controller({
     globalSceneOptions: {
-      triggerHook: 0.3,
+      triggerHook: 0.25,
       duration: 500,
       offset: 0.3
     }
@@ -77,14 +72,14 @@ export default function initScroll() {
     triggerElement: intro.id1
   })
     .setPin(intro.id1)
-    .on("enter", function (event) {
+    .on("enter", function(event) {
       intro1.classList.remove("hidden");
       headContainer.classList.add("scaled");
       pulseCircle.pause();
       pulseCircle.seek(0);
       restartLinesProgress(lines.pahse1);
     })
-    .on("leave", function (event) {
+    .on("leave", function(event) {
       intro1.classList.add("hidden");
       headContainer.classList.remove("scaled");
       pulseCircle.play();
@@ -108,7 +103,7 @@ export default function initScroll() {
     .setPin(intro.id3)
     .setClassToggle(intro.id3, "visible")
 
-    .on("enter", function ({ scrollDirection }) {
+    .on("enter", function({ scrollDirection }) {
       if (scrollDirection === dir.forward) {
         setSprite(1);
         handleMorph();
@@ -116,7 +111,7 @@ export default function initScroll() {
         isBrain = true;
       }
     })
-    .on("leave", function ({ scrollDirection }) {
+    .on("leave", function({ scrollDirection }) {
       if (scrollDirection === dir.forward) {
       } else {
         setSprite(0);
@@ -135,14 +130,14 @@ export default function initScroll() {
     .on("progress", ({ progress }) => {
       setLinesProgress(lines.pahse2, progress);
     })
-    .on("enter", function ({ scrollDirection }) {
+    .on("enter", function({ scrollDirection }) {
       if (scrollDirection === dir.forward) {
         setSprite(0);
       } else {
         setLinesProgress(lines.pahse2, 1);
       }
     })
-    .on("leave", function ({ scrollDirection }) {
+    .on("leave", function({ scrollDirection }) {
       if (scrollDirection === dir.forward) {
       } else {
         setSprite(1);
@@ -154,7 +149,7 @@ export default function initScroll() {
   })
     .setPin(intro.id5)
     .setClassToggle(intro.id5, "visible")
-    .on("enter", function ({ scrollDirection }) {
+    .on("enter", function({ scrollDirection }) {
       if (scrollDirection === dir.forward) {
         setSprite(2);
         timelineLines.classList.remove("unrevealed");
@@ -164,7 +159,7 @@ export default function initScroll() {
         animateLines([...lines.pahse1, ...lines.pahse2]);
       }
     })
-    .on("leave", function ({ scrollDirection }) {
+    .on("leave", function({ scrollDirection }) {
       if (scrollDirection === dir.forward) {
         headContainer.classList.add("down");
         animateLines([...lines.pahse1, ...lines.pahse2], true);
@@ -178,7 +173,6 @@ export default function initScroll() {
 
   controller.addScene([stage1, stage2, stage2b, stage3, stage4, stage5]);
 
-  stage1.triggerHook(0.25);
   stage3.duration(900);
   stage4.duration(2100);
   stage5.duration(400);

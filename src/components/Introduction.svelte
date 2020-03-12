@@ -18,6 +18,15 @@
   section {
     text-align: center;
   }
+
+  .message {
+    min-height: 25vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+
   #first-intro {
     margin-top: 20vh;
   }
@@ -44,7 +53,7 @@
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
       Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 
-    @media (max-height: 600px) {
+    @media (max-height: 600px), (max-width: 425px) {
       font-size: 18px;
       line-height: 24px;
     }
@@ -60,7 +69,7 @@
     font-weight: 300;
     font-style: italic;
   }
-  #intro-5 {
+  #intro-5 p {
     background: white;
   }
 </style>
@@ -78,20 +87,20 @@
     </p>
   </section>
   <div style="height: 200px" />
-  <section id="intro-2" class=" showable">
+  <section id="intro-2" class="message showable">
     <p>{$_('intro-2')}</p>
   </section>
-  <section id="intro-2-b" class=" showable">
+  <section id="intro-2-b" class=" message showable">
     <p>{$_('intro-2-b')} &#x1F643;</p>
   </section>
   <div style="height: 200px" />
-  <section id="intro-3" class="showable">
+  <section id="intro-3" class="message showable">
     <p>
       <em>{$_('intro-3')}</em>
     </p>
   </section>
   <div style="height: 200px" />
-  <section id="intro-4" class="showable">
+  <section id="intro-4" class="message showable">
     <p>
       <em>{$_('intro-4')}</em>
     </p>
@@ -100,7 +109,7 @@
     </p>
   </section>
   <div style="height: 100px" />
-  <section id="intro-5" class="showable">
+  <section id="intro-5" class="message showable">
     <p>
       &#x1F525;
       <em>

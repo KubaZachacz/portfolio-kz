@@ -43,12 +43,16 @@
         top: 0;
         left: 0;
       }
+      @media (max-width: 600px) {
+        height: 45vh;
+      }
     }
 
     :global(.visible) {
       opacity: 1 !important;
     }
   }
+
   #shape-container {
     z-index: -10;
     height: 100%;
@@ -59,16 +63,7 @@
       transform-box: fill-box;
     }
   }
-  .lines-container,
-  #particles-container {
-    position: fixed;
-    height: 55vh;
-    width: 50vw;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: -50;
-  }
+
   .svg-container {
     position: fixed;
     height: 55vh;
@@ -76,6 +71,10 @@
     left: 50%;
     transform: translateX(-50%);
     z-index: -50;
+
+    @media (max-width: 600px) {
+      height: 47.5vh;
+    }
   }
 </style>
 

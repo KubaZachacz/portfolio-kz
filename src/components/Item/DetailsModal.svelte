@@ -24,14 +24,12 @@
   onMount(() => {
     const details = document.getElementsByClassName("window")[0];
     modalHeight = details.getBoundingClientRect().height;
-    const calculatedHeight = modalHeight - 2*modalPaddingPx - titleHeightPx
-    if (calculatedHeight > defaultHeight) setPreviewHeight(calculatedHeight);
-
+    const calculatedHeight = modalHeight - 2 * modalPaddingPx - titleHeightPx;
+    setPreviewHeight(calculatedHeight);
   });
 </script>
 
 <style lang="scss">
-
   .details-modal {
     width: 100%;
     height: 100%;
@@ -47,9 +45,8 @@
     letter-spacing: 0em;
     margin: 0 0 8px 0;
     padding: 8px;
-    border-bottom: 1px solid rgba(0,0,0,0.7);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.7);
   }
-
 </style>
 
 <div id="details" class="details-modal">
