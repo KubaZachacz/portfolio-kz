@@ -1,8 +1,10 @@
 <style>
   svg {
-    /* width: 100%; */
     height: 100%;
     margin: 0 auto;
+  }
+  path {
+    opacity: 0;
   }
   #lvl1 path {
     filter: url(#glow-1);
@@ -104,7 +106,6 @@
         stroke: #f06;
       }
     </style>
-
     <filter
       id="glow-1"
       filterUnits="userSpaceOnUse"
