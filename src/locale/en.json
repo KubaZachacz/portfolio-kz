@@ -25,5 +25,10 @@
   },
   "tools": "Used tools",
   "main-tools": "Main tools",
-  "resize-preview": "Resize preview"
+  "resize-preview": "Resize preview",
+  "icon-title": {
+    "img": "Open preview",
+    "gallery": "Open gallery",
+    "video": "Open video"
+  }
 }

@@ -9,6 +9,7 @@
   .item-prview {
     display: flex;
     flex-direction: column;
+    height: 360px;
 
     iframe {
       margin: 0 auto;

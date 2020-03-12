@@ -2,6 +2,8 @@
   import { _ } from "svelte-i18n";
   import { getContext } from "svelte";
   import DetailsModal from "./DetailsModal.svelte";
+  import { MaximizeIcon, ImageIcon, VideoIcon } from "svelte-feather-icons";
+
   export let index;
   export let id;
   export let srcType;
@@ -161,17 +163,42 @@
     margin: 0 0 8px 0;
   }
 
-  .miniature-placeholder {
+  .miniature-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    z-index: 0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  }
+
+  .miniature {
+    position: relative;
     width: 100%;
     height: 240px;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
     cursor: pointer;
+    transition: transform 0.2s;
+    transform-origin: center;
+    &:hover {
+      transform: scale(1.08);
+    }
     @media (min-width: 425px) {
       height: 300px;
     }
+  }
+
+  .icon {
+    width: 30px;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    color: #ffffff;
+    cursor: pointer;
+    mix-blend-mode: difference;
+    opacity: 0.7;
+    z-index: 1;
   }
 
   .description {
@@ -185,10 +212,21 @@
 <div class="item-container" class:right={index % 2 != 0}>
   <div class="item-column">
     <div class="item">
-      <div
-        class="miniature-placeholder"
-        on:click={showDetails}
-        style="background-image: url({`images/portfolio/${minSrc}`})" />
+      <div class="miniature-wrapper">
+        <div
+          class="miniature"
+          on:click={showDetails}
+          style="background-image: url({`images/portfolio/${minSrc}`})" />
+        <span class="icon" title={$_(`icon-title.${srcType}`)}>
+          {#if (srcType === 'video')}
+            <VideoIcon />
+          {:else if (srcType === 'gallery')}
+            <ImageIcon />
+          {:else}
+            <MaximizeIcon />
+          {/if}
+        </span>
+      </div>
       <div class="content">
         <p class="tags">
           {#each tags as tag}

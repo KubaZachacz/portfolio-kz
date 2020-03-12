@@ -1,6 +1,7 @@
 const src = {
   img: "img",
-  video: "video"
+  video: "video",
+  gallery: "gallery"
 };
 
 const tags = {
@@ -29,7 +30,7 @@ export const portfolioItems = [
     items: [
       {
         id: "portfolio-page",
-        srcType: src.img,
+        srcType: src.gallery,
         minSrc: "portfolio.png",
         // minSrc: "placeholder.jpg",
         src: ["portfolio.png", "placeholder2.png", "placeholder.jpg", "baner-1.jpg"],
@@ -47,7 +48,7 @@ export const portfolioItems = [
       {
         id: "placeholder",
         srcType: src.img,
-        minSrc: "placeholder.jpg",
+        minSrc: "baner-1.jpg",
         src: "placeholder.jpg",
         tags: [tags.prv, tags.engineering],
         tools: [tools.inventor, tools.arduino]
