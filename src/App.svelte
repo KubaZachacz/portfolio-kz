@@ -32,8 +32,8 @@
   <div style="height: 300px" />
   <Modal
     key="details-modal"
-    styleWindow={{ width: 'auto', minWidth: '300px', height: '95vh', minHeight: '400px' }}
-    styleContent={{maxHeight: 'unset'}}>
+    styleWindow={{ width: 'auto', minWidth: '300px', height: '95vh', minHeight: '400px', margin: 0 }}
+    styleContent={{ maxHeight: 'unset' }}>
     <Timeline />
   </Modal>
 </main>

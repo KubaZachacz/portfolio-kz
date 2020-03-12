@@ -76,12 +76,9 @@
     top: 50%;
     z-index: 50;
     transform: translateY(-50%);
+    border: 2px solid $icon-color;
     border-radius: 25%;
     background-color: transparent;
-    mix-blend-mode: difference;
-    opacity: 0.7;
-    border: 2px solid $icon-color;
-
     mix-blend-mode: difference;
     opacity: 0.7;
   }

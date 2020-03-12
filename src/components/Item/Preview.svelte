@@ -1,6 +1,5 @@
 <script>
   export let src;
-  export let id;
 
   const baseURL = "/images/portfolio/";
 </script>

@@ -6,11 +6,7 @@
   import Preview from "./Preview.svelte";
 
   export let title;
-  export let description;
-  export let srcType;
   export let src;
-  export let tags;
-  export let tools;
 
   const modalPaddingPx = 16;
   const titleHeightPx = 44;
@@ -35,7 +31,6 @@
 </script>
 
 <style lang="scss">
-  $icon-color: #ffffff;
 
   .details-modal {
     width: 100%;
@@ -44,22 +39,6 @@
 
   .gallery-wrapper {
     position: relative;
-  }
-
-  // .zoom-control {
-  //   width: 40px;
-  //   position: absolute;
-  //   bottom: 20px;
-  //   right: 2vw;
-  //   color: $icon-color;
-  //   cursor: pointer;
-  //   mix-blend-mode: difference;
-  //   opacity: 0.7;
-  // }
-  .content {
-    width: 85%;
-    margin: 0 auto;
-    padding: 16px;
   }
 
   h4 {
@@ -75,7 +54,6 @@
 
 <div id="details" class="details-modal">
   <h4>{title}</h4>
-
   <div class="gallery-wrapper">
     {#if Array.isArray(src)}
       <Carousel perPage={1}>
@@ -86,12 +64,5 @@
     {:else}
       <Preview {src} />
     {/if}
-    <!-- <span class="zoom-control" title={$_('resize-preview')} on:click={onZoom}>
-      {#if isZoom}
-        <MinimizeIcon />
-      {:else}
-        <MaximizeIcon />
-      {/if}
-    </span> -->
   </div>
 </div>
