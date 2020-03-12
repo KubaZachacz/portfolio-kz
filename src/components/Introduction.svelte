@@ -46,7 +46,7 @@
   }
   p {
     width: 90%;
-    max-width: 600px;
+    max-width: 640px;
     margin: 0 auto;
     font-size: 20px;
     line-height: 2.2rem;
@@ -76,10 +76,10 @@
 
 <div>
   <section id="intro-1" class="hidable">
-    <p>{$_('intro-1')}</p>
+    <p>{$_('intro.1')}</p>
     <p>
       {#if wasTimelineViewd}
-        <a href="#timeline">{$_('intro-1-b')}</a>
+        <a href="#timeline">{$_('intro.1-b')}</a>
       {/if}
     </p>
     <p>
@@ -88,24 +88,24 @@
   </section>
   <div style="height: 200px" />
   <section id="intro-2" class="message showable">
-    <p>{$_('intro-2')}</p>
+    <p>{$_('intro.2')}</p>
   </section>
   <section id="intro-2-b" class=" message showable">
-    <p>{$_('intro-2-b')} &#x1F643;</p>
+    <p>{$_('intro.2-b')} &#x1F643;</p>
   </section>
   <div style="height: 200px" />
   <section id="intro-3" class="message showable">
     <p>
-      <em>{$_('intro-3')}</em>
+      <em>{$_('intro.3')}</em>
     </p>
   </section>
   <div style="height: 200px" />
   <section id="intro-4" class="message showable">
     <p>
-      <em>{$_('intro-4')}</em>
+      <em>{$_('intro.4')}</em>
     </p>
     <p class="additional-text">
-      {#if wasTimelineViewd}{$_('intro-4-c')}{:else}{$_('intro-4-b')}{/if}
+      {#if wasTimelineViewd}{$_('intro.4-c')}{:else}{$_('intro.4-b')}{/if}
     </p>
   </section>
   <div style="height: 100px" />
@@ -113,7 +113,7 @@
     <p>
       &#x1F525;
       <em>
-        <strong>{$_('intro-5')}</strong>
+        <strong>{$_('intro.5')}</strong>
       </em>
       &#x1F525;
     </p>

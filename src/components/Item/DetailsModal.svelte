@@ -5,8 +5,11 @@
 
   import Preview from "./Preview.svelte";
 
+  export let id;
   export let title;
   export let src;
+
+  console.log(id);
 
   const modalPaddingPx = 16;
   const titleHeightPx = 44;
@@ -55,7 +58,7 @@
     {#if Array.isArray(src)}
       <Carousel perPage={1}>
         {#each src as srcUrl}
-          <Preview src={srcUrl} />
+          <Preview src={srcUrl} {id} />
         {/each}
       </Carousel>
     {:else}

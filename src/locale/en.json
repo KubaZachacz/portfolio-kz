@@ -18,17 +18,18 @@
   },
   "portfolio-page": {
     "title": "Portfolio page",
-    "description": "You are here :)",
-    "alt": "Portfolio page screenshot"
+    "description": "You are here! My first steps with Svelte framework. Page made as a field for experiments with anime.js and rollup. Bugged and unpredictable - pure madness."
+  },
+  "avatar-maker": {
+    "title": "Avatar maker",
+    "description": "Showcase project, which was made to practice my new favourite React stack. It's going to be a part of something way much bigger soon!"
   },
   "bastion-robot": {
     "title": "Robotic arm",
-    "description": "Bastion inspired robotic arm",
-    "alt": "Robotic arm video"
+    "description": "Bastion inspired robotic arm"
   },
   "placeholder": {
     "title": "Some title",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum laoreet tempor vestibulum. Cras sed purus cursus, egestas ex ut, dapibus dui. Aenean ultrices turpis in dolor cursus, in euismod mi blandit. Duis ut tincidunt libero, eu laoreet leo. Aenean id nibh fringilla, porttitor enim et, convallis ex. ",
-    "alt": "Robotic arm video"
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum laoreet tempor vestibulum. Cras sed purus cursus, egestas ex ut, dapibus dui. Aenean ultrices turpis in dolor cursus, in euismod mi blandit. Duis ut tincidunt libero, eu laoreet leo. Aenean id nibh fringilla, porttitor enim et, convallis ex. "
   }
 }

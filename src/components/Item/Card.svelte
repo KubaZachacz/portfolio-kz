@@ -25,8 +25,10 @@
   const { open } = getContext("details-modal");
   const showDetails = event => {
     event.preventDefault();
-    open(DetailsModal, { title, src });
+    open(DetailsModal, { title, id, src });
   };
+
+  const baseUrl = `images/portfolio/${id}/`;
 </script>
 
 <style lang="scss">
@@ -114,7 +116,7 @@
     overflow: hidden;
     z-index: 0;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
-    &:hover .miniature{
+    &:hover .miniature {
       transform: scale(1.05);
     }
   }
@@ -160,7 +162,7 @@
     <div
       class="miniature"
       on:click={showDetails}
-      style="background-image: url({`images/portfolio/${minSrc}`})" />
+      style="background-image: url({`${baseUrl}${minSrc}`})" />
     <button
       class="icon"
       on:click={showDetails}

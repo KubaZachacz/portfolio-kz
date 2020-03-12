@@ -1,7 +1,8 @@
 <script>
   export let src;
+  export let id;
 
-  const baseURL = "/images/portfolio/";
+  const baseURL = `/images/portfolio/${id}/`;
 </script>
 
 <style lang="scss">
@@ -35,7 +36,8 @@
       picture-in-picture"
       allowfullscreen />
   {:else}
-    <div class="preview-image"
+    <div
+      class="preview-image"
       style={`background-image: url(${baseURL}${src})`} />
   {/if}
 </div>
