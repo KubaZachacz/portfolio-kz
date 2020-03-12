@@ -30,7 +30,7 @@
       rgba(255, 255, 255, 0) 0%,
       rgba(255, 255, 255, 1) 50%
     );
-    z-index: 10;
+    z-index: 30;
   }
   h2,
   h1 {
@@ -43,7 +43,7 @@
   }
   h1 {
     font-size: 7vh;
-    margin: 16px 0;
+    margin: 1vh 0;
   }
 
   h2 {
@@ -57,14 +57,17 @@
     h2 {
       left: 0;
       transform: translate(0, 0);
-    }
-    h1 {
-      font-size: 32px;
-      margin: 12px 24px 4px 24px;
-    }
-    h2 {
-      font-size: 20px;
       margin-left: 24px;
+    }
+    @media (min-height: 425px) {
+      h1 {
+        font-size: 32px;
+        margin-top: 12px;
+        margin-bottom: 4px;
+      }
+      h2 {
+        font-size: 20px;
+      }
     }
   }
 
@@ -108,7 +111,7 @@
     }
   }
 
-  @media (max-width: 768px) {
+  @media (orientation: portrait) and (max-width: 768px) {
     h1 {
       font-size: 40px;
       margin: 8px 0 16px;
@@ -141,10 +144,10 @@
       }
     }
   }
-  @media (max-width: 425px) {
+  @media (orientation: portrait) and (max-width: 425px) {
     h1 {
       font-size: 36px;
-      margin: 8px 0 12px;
+      margin: 2px 0 6px;
     }
     h2 {
       font-size: 28px;
@@ -170,7 +173,7 @@
 </style>
 
 <header id="page-header">
-  <nav class="mobile">
+  <nav>
     <a
       href="https://github.com/KubaZachacz"
       title="github.com/KubaZachacz"
