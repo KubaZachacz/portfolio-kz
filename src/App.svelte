@@ -25,8 +25,8 @@
 
 </style>
 
+<Header />
 <main>
-  <Header />
   <Head />
   <Introduction />
   <div style="height: 300px" />

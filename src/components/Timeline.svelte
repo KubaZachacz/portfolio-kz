@@ -85,7 +85,7 @@
         <div class="year">&#8226;{item}&#8226;</div>
       </div>
     {:else}
-      <Item {...{ item, index: item.index }} />
+      <Item {...{ item }} />
     {/if}
   {/each}
 </div>

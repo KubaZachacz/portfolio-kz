@@ -175,7 +175,7 @@
       href="https://github.com/KubaZachacz"
       title="github.com/KubaZachacz"
       aria-label="github.com/KubaZachacz"
-      tabindex="1">
+      tabindex="0">
       <img src="images/icons/github.svg" alt="github icon" />
     </a>
     <a
@@ -184,7 +184,11 @@
       aria-label="zachacz.jakub@gmail.com">
       <img src="images/icons/email.svg" alt="email icon" />
     </a>
-    <select name="lang" id="lang-select" on:change={handleHange}>
+    <select
+      name="lang"
+      aria-label="select language"
+      id="lang-select"
+      on:change={handleHange}>
       <option value="en">EN</option>
       <option value="pl">PL</option>
     </select>

@@ -10,7 +10,6 @@
     ExternalLinkIcon
   } from "svelte-feather-icons";
 
-  export let index;
   export let id;
   export let srcType;
   export let src;
@@ -26,7 +25,7 @@
   const { open } = getContext("details-modal");
   const showDetails = event => {
     event.preventDefault();
-    open(DetailsModal, { title, src});
+    open(DetailsModal, { title, src });
   };
 </script>
 
@@ -77,8 +76,6 @@
     }
     .repo-link {
       display: block;
-      color: inherit;
-      // width: 30px;
     }
   }
 
@@ -108,6 +105,7 @@
   .tools {
     list-style-position: inside;
     margin: 0 0 8px 0;
+    padding: 0;
   }
 
   .miniature-wrapper {
@@ -116,6 +114,9 @@
     overflow: hidden;
     z-index: 0;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+    &:hover .miniature{
+      transform: scale(1.05);
+    }
   }
 
   .miniature {
@@ -128,9 +129,7 @@
     cursor: pointer;
     transition: transform 0.2s;
     transform-origin: center;
-    &:hover {
-      transform: scale(1.05);
-    }
+
     @media (min-width: 425px) {
       height: 300px;
     }
@@ -196,17 +195,12 @@
         </a>
       {/if}
     </div>
-    <!-- <div class="page-link">
-      {#if url}
-        <a href={url}>{$_('visit-page')}</a>
-      {/if}
-    </div> -->
-    <p class="tools">
-      {$_('tools')}:
+    {$_('tools')}:
+    <ul class="tools">
       {#each tools as tool}
         <li class="tool">{tool}</li>
       {/each}
-    </p>
+    </ul>
     <p class="description">{$_(`${id}.description`)}</p>
   </div>
 </div>

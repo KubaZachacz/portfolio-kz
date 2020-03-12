@@ -1,10 +1,9 @@
 <script>
   import Card from "./Card.svelte";
 
-  export let index;
   export let item;
 
-
+  const { index, ...cardData } = item;
 </script>
 
 <style lang="scss">
@@ -97,12 +96,11 @@
       width: 50%;
     }
   }
-
 </style>
 
 <div class="item-container" class:right={index % 2 != 0}>
   <div class="item-column">
-    <Card {...item}/>
+    <Card {...cardData} />
     <div class="dynks" />
   </div>
 </div>
