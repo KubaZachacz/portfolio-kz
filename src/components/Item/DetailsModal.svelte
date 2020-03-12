@@ -20,11 +20,12 @@
 
   let isZoom = false;
   const defaultHeight = 360;
+  let initialHeight = defaultHeight;
   let modalHeight = defaultHeight;
 
   const onZoom = () => {
     isZoom = !isZoom;
-    setPreviewHeight(isZoom ? 0.95 * modalHeight : defaultHeight);
+    setPreviewHeight(isZoom ? 0.95 * modalHeight : initialHeight);
   };
 
   const setPreviewHeight = height => {
@@ -37,8 +38,10 @@
   onMount(() => {
     const details = document.getElementsByClassName("window")[0];
     modalHeight = details.getBoundingClientRect().height;
+    initialHeight =
+      0.5 * modalHeight > defaultHeight ? 0.5 * modalHeight : defaultHeight;
 
-    setPreviewHeight(defaultHeight);
+    setPreviewHeight(initialHeight);
   });
 </script>
 
@@ -54,6 +57,7 @@
   .gallery-wrapper {
     position: relative;
   }
+
   .zoom-control {
     width: 40px;
     position: absolute;
@@ -65,13 +69,15 @@
     opacity: 0.7;
   }
   .content {
+    width: 85%;
+    margin: 0 auto;
     padding: 16px;
   }
 
   h3 {
     font-weight: 400;
-    font-size: 1.5rem;
-    line-height: 1.334;
+    font-size: 1.7rem;
+    line-height: auto;
     letter-spacing: 0em;
     margin: 0;
   }
@@ -83,16 +89,23 @@
   p {
     margin: 0;
     margin-bottom: 4px;
+    font-size: 1.2rem;
   }
 
   .tags {
-    margin: 0 0 8px 0;
+    margin: 0 0 16px 0;
     font-size: 0.9rem;
   }
 
   .tools {
     list-style-position: inside;
     margin: 0 0 8px 0;
+  }
+
+  hr {
+    border: none;
+    border-bottom: 1px solid #000000;
+    opacity: 0.2;
   }
 </style>
 
@@ -107,7 +120,7 @@
     {:else}
       <Preview {src} />
     {/if}
-    <span class="zoom-control" title={$_('resizePreview')} on:click={onZoom}>
+    <span class="zoom-control" title={$_('resize-preview')} on:click={onZoom}>
       {#if isZoom}
         <MinimizeIcon />
       {:else}

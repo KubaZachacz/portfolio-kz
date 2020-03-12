@@ -54,11 +54,13 @@
       rgba(255, 97, 150, 1) 100%
     );
   }
+
   .year-wrapper {
     width: 100%;
     display: flex;
     justify-content: center;
     margin-top: 48px;
+
     .year {
       background: white;
       padding: 4px 16px;

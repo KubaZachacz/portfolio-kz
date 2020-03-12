@@ -197,9 +197,11 @@
         </p>
         <h3 class="title">{$_(`${id}.title`)}</h3>
         <p class="tools">
-          {$_('tools')}:
+          {$_('main-tools')}:
           {#each tools as tool, i}
-            <li class="tool">{tool}</li>
+            {#if i < 3}
+              <li class="tool">{tool}</li>
+            {/if}
           {/each}
         </p>
         <p class="description">{$_(`${id}.description`)}</p>
