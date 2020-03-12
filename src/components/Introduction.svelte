@@ -43,6 +43,11 @@
     line-height: 2.2rem;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
       Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+
+    @media (max-height: 600px) {
+      font-size: 18px;
+      line-height: 24px;
+    }
   }
   .actual-introduction {
     text-align: justify;
@@ -91,11 +96,7 @@
       <em>{$_('intro-4')}</em>
     </p>
     <p class="additional-text">
-      {#if wasTimelineViewd}
-        {$_('intro-4-c')}
-      {:else}
-        {$_('intro-4-b')}
-      {/if}
+      {#if wasTimelineViewd}{$_('intro-4-c')}{:else}{$_('intro-4-b')}{/if}
     </p>
   </section>
   <div style="height: 100px" />

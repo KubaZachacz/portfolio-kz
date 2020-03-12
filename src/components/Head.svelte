@@ -26,6 +26,9 @@
 
     &.scaled {
       transform: translateX(-50%) scale(1.2);
+      @media (max-height: 700px) {
+        transform: translateX(-50%) scale(1.1);
+      }
     }
   }
 
@@ -35,7 +38,6 @@
     .head {
       height: 50vh;
       width: auto;
-      // opacity: 0;
       &.overlay {
         position: absolute;
         top: 0;
@@ -70,10 +72,6 @@
   .svg-container {
     position: fixed;
     height: 55vh;
-    // width: 50vw;
-    // width: 120%;
-    // max-width: 850px;
-    // min-width: 320px;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
@@ -84,13 +82,6 @@
 <div class="head-section">
   <div id="head-container" class="head-position scaled">
     <img id="head-image" class="head" src="images/kuba-1.svg" alt="moi" />
-    <!-- <img id="head-2" class="head overlay" src="images/kuba-2.svg" alt="moi" />
-    <img
-      id="head-1"
-      class="head overlay visible"
-      src="images/kuba-1.svg"
-      alt="moi" /> -->
-    <!-- <Lines /> -->
     <svg
       id="shape-container"
       class="head-position"
@@ -101,10 +92,7 @@
         <path id="base-circle" d={initCirclePath} fill="#8CB5E4" />
       </g>
     </svg>
-
-    <!-- <Art /> -->
   </div>
-  <canvas id="particles-container" class="head-position" />
 </div>
 <div class="svg-container">
   <Drawing />

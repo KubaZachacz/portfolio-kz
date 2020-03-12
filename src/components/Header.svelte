@@ -39,15 +39,15 @@
     width: fit-content;
     position: relative;
     left: 50%;
-    transform: translate(-50%, 36px);
+    transform: translate(-50%, 2vh);
   }
   h1 {
-    font-size: 56px;
+    font-size: 7vh;
     margin: 16px 0;
   }
 
   h2 {
-    font-size: 48px;
+    font-size: 5vh;
     margin: 0 0;
   }
 
@@ -56,7 +56,7 @@
     h1,
     h2 {
       left: 0;
-      transform: translateX(0);
+      transform: translate(0, 0);
     }
     h1 {
       font-size: 32px;
@@ -141,7 +141,7 @@
       }
     }
   }
-  @media (max-width: 375px) {
+  @media (max-width: 425px) {
     h1 {
       font-size: 36px;
       margin: 8px 0 12px;
