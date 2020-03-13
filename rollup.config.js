@@ -5,6 +5,9 @@ import livereload from "rollup-plugin-livereload";
 import { terser } from "rollup-plugin-terser";
 import sveltePreprocess from "svelte-preprocess";
 import json from "@rollup/plugin-json";
+import url from "@rollup/plugin-url";
+// import buble from "@rollup/plugin-buble";
+import babel from "rollup-plugin-babel";
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -27,6 +30,7 @@ export default {
   },
   plugins: [
     // scss(),
+    json(),
 
     svelte({
       // enable run-time checks when not in production
@@ -60,8 +64,36 @@ export default {
 
     // If we're building for production (npm run build
     // instead of npm run dev), minify
-    production && terser(),
-    json()
+    // buble({
+    //   objectAssign: "Object.assign",
+    //   transforms: { dangerousForOf: true }
+    // }),
+    babel({
+      extensions: [".js", ".mjs", ".html", ".svelte"],
+      runtimeHelpers: true,
+      exclude: ["node_modules/@babel/**"],
+      presets: [
+        [
+          "@babel/preset-env",
+          {
+            targets: "> 0.25%, not dead"
+          }
+        ]
+      ],
+      plugins: [
+        "@babel/plugin-syntax-dynamic-import",
+        [
+          "@babel/plugin-transform-runtime",
+          {
+            useESModules: true
+          }
+        ]
+      ]
+    }),
+    url({
+      publicPath: "kz"
+    }),
+    production && terser()
   ],
   watch: {
     clearScreen: false

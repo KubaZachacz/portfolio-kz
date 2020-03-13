@@ -1,6 +1,6 @@
 :root {
   --primary: rgb(0, 80, 160);
-  --secondary: rgb(255, 20, 99)
+  --secondary: rgb(255, 20, 99);
   /* --primary: rgb(0, 100, 200); */
 }
 
@@ -64,17 +64,36 @@ button:focus {
   box-shadow: 0 0 0 2px #3399ff;
 }
 
-a:focus, select:focus {
+a:focus,
+select:focus {
   outline: 1px solid var(--primary) !important;
   outline-offset: 1px;
 }
 
-/* body {
-  -ms-overflow-style: none; 
-  scrollbar-width: none;  
-  overflow: -moz-scrollbars-none;
+.IE-warning {
+  text-align: center;
 }
 
-body::-webkit-scrollbar { 
-  display: none;
-} */
+.IE-warning h1 {
+  color: red;
+  font-family: serif;
+  font-size: 3rem;
+  animation: blinkingText 1s infinite;
+  padding: 16px;
+  border: 3px dashed yellow;
+}
+
+@keyframes blinkingText {
+  0% {
+    color: red;
+  }
+  50% {
+    color: red;
+  }
+  51% {
+    color: blue;
+  }
+  100% {
+    color: blue;
+  }
+}
