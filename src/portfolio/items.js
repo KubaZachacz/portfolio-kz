@@ -66,6 +66,16 @@ export const portfolioItems = [
     year: 2019,
     items: [
       {
+        id: "panel-demo",
+        url: "https://123web.pl/PanelDemo/",
+        repo: "https://github.com/KubaZachacz/PanelDemo",
+        srcType: src.gallery,
+        minSrc: "panel1.png",
+        src: ["panel1.png", "panel2.png"],
+        tags: [tags.front, tags.prv],
+        tools: [tools.react, tools.redux, tools.material]
+      },
+      {
         id: "placeholder",
         srcType: src.img,
         minSrc: "baner-1.jpg",

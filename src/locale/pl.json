@@ -28,6 +28,10 @@
     "title": "Generator Awatarów",
     "description": "Mały demo projekt, zrobiony by przećwiczyć aktualnego i ulubionego Reactowego stacka. W przyszłości będzie częścią czegoś znacznie większego!"
   },
+  "panel-demo": {
+    "title": "Panel obsługi salonu kosmetycznego",
+    "description": "Panel stworzony do zarządzania bazą danych salonu kosmetycznego - klienci, produkty oraz rezerwacje. Dostępny przykład to wersja demo z mockowanymi danymi. Zapraszam do testowania i zamawiania! ;)"
+  },
   "dgprawo": {
     "title": "Kancelaria Radcy Prawnego",
     "description": "Moja pierwsza strona zrobiona na zamówienie. Czysty HTML, CSS i odrobina JSa."

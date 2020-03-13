@@ -28,6 +28,10 @@
     "title": "Avatar maker",
     "description": "Showcase project, which was made to practice my new favourite React stack. It's going to be a part of something way much bigger soon!"
   },
+  "panel-demo": {
+    "title": "Beauty clinic dashboard",
+    "description": "Dashboard panel created to maintain beauty's clinic database. Here's available demo version with mocked data. Try it and order one NOW!"
+  },
   "dgprawo": {
     "title": "Kancelaria Radcy Prawnego",
     "description": "My first ordered, custom-made website. Made with pure HTML, CSS and a pinch of JS."
