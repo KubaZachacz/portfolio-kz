@@ -9,8 +9,6 @@
   export let title;
   export let src;
 
-  console.log(id);
-
   const modalPaddingPx = 16;
   const titleHeightPx = 44;
 
@@ -62,7 +60,7 @@
         {/each}
       </Carousel>
     {:else}
-      <Preview {src} />
+      <Preview {src} {id} />
     {/if}
   </div>
 </div>

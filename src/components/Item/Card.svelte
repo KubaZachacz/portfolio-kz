@@ -17,7 +17,7 @@
   export let url = "";
   export let repo = "";
   export let tags;
-  export let tools;
+  export let tools = null;
 
   const description = $_(`${id}.description`);
   const title = $_(`${id}.title`);
@@ -197,12 +197,14 @@
         </a>
       {/if}
     </div>
-    {$_('tools')}:
-    <ul class="tools">
-      {#each tools as tool}
-        <li class="tool">{tool}</li>
-      {/each}
-    </ul>
+    {#if tools}
+      {$_('tools')}:
+      <ul class="tools">
+        {#each tools as tool}
+          <li class="tool">{tool}</li>
+        {/each}
+      </ul>
+    {/if}
     <p class="description">{$_(`${id}.description`)}</p>
   </div>
 </div>

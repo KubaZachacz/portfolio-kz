@@ -15,5 +15,33 @@
     "img": "Otwórz podgląd",
     "gallery": "Otwórz galerię",
     "video": "Otwórz wideo"
+  },
+  "portfolio-page": {
+    "title": "Strona portfolio",
+    "description": "Jeteś tutaj! Ta strona to moje pierwsze kroki z frameworkiem Svelte, dodatkowo jest pole do eksperymentów z anime.js i rollup'em. Zbugowana i nieprzewidywalna - czyste szaleństwo."
+  },
+  "envio": {
+    "title": "Envio IoT Dashboard",
+    "description": "Panel kontrolny dla urządzenia IoT - elektronicznej etykiedy dedykowanej dla kufrów czy kontenerów, która dynamicznie zbiera i wyświetla dane. Urządzenie, które pozwala kontrolować flotę i ma ułatwiać logistykę."
+  },
+  "avatar-maker": {
+    "title": "Generator Awatarów",
+    "description": "Mały demo projekt, zrobiony by przećwiczyć aktualnego i ulubionego Reactowego stacka. W przyszłości będzie częścią czegoś znacznie większego!"
+  },
+  "dgprawo": {
+    "title": "Kancelaria Radcy Prawnego",
+    "description": "Moja pierwsza strona zrobiona na zamówienie. Czysty HTML, CSS i odrobina JSa."
+  },
+  "genji": {
+    "title": "Gra Genji Simulator",
+    "description": "Prosta gra zainspirowana memai z gry Overwatch. Niestety obecnie jest zablokowana na sklepie Google PLay."
+  },
+  "bastion-robot": {
+    "title": "Robotic arm",
+    "description": "Robotyczne ramię w pełni zaprojektowane i wykonane przeze mnie, dzieki cudowi druku 3D!. Robot posiada możliwości sterowania za pomocą kinematyki prostej i protoypu kinematyki odwrotnej. Dodatkowo może grać ♪ melodie ♪ na swoich silnikach krokowyh."
+  },
+  "placeholder": {
+    "title": "Miłego dnia",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum laoreet tempor vestibulum. Cras sed purus cursus, egestas ex ut, dapibus dui. Aenean ultrices turpis in dolor cursus, in euismod mi blandit. Duis ut tincidunt libero, eu laoreet leo. Aenean id nibh fringilla, porttitor enim et, convallis ex. "
   }
 }

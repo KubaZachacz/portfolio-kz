@@ -21,7 +21,10 @@ const tools = {
   redux: "Redux",
   inventor: "Autodesk Inventor",
   illustrator: "Adobre Illustrator",
-  arduino: "Arduino"
+  arduino: "Arduino",
+  sotrybook: "Storybook",
+  unity: "Unity",
+  vanilla: "HTML, CSS, JS"
 };
 
 export const portfolioItems = [
@@ -30,13 +33,22 @@ export const portfolioItems = [
     items: [
       {
         id: "portfolio-page",
-        url: "kuba-zachacz.123web.pl",
+        url: "#",
         repo: "https://github.com/KubaZachacz/portfolio-kz",
         srcType: src.img,
         minSrc: "portfolio.png",
-        src: ["portfolio.png"],
+        src: "portfolio.png",
         tags: [tags.front, tags.graphic, tags.prv],
         tools: [tools.svelte, tools.illustrator]
+      },
+      {
+        id: "envio",
+        url: "https://www.envio.io/industrial-tracking-technology",
+        srcType: src.gallery,
+        minSrc: "envio1.png",
+        src: ["envio1.png", "envio2.png", "envio3.png"],
+        tags: [tags.front, tags.akra, tags.pro],
+        tools: [tools.react, tools.sotrybook]
       },
       {
         id: "avatar-maker",
@@ -56,22 +68,33 @@ export const portfolioItems = [
       {
         id: "placeholder",
         srcType: src.img,
-        minSrc: "placeholder.jpg",
-        src: "placeholder.jpg",
-        tags: [tags.prv, tags.engineering],
-        tools: [
-          tools.inventor,
-          tools.arduino,
-          tools.illustrator,
-          tools.material,
-          tools.redux
-        ]
+        minSrc: "baner-1.jpg",
+        src: "baner-1.jpg",
+        tags: [tags.prv],
+        tools: [tools.svelte]
+      },
+      {
+        id: "dgprawo",
+        url: "https://dgprawo.pl/",
+        srcType: src.img,
+        minSrc: "dgprawo1.png",
+        src: "dgprawo1.png",
+        tags: [tags.front, tags.pro],
+        tools: [tools.vanilla]
       }
     ]
   },
   {
-    year: 2019,
+    year: 2018,
     items: [
+      {
+        id: "genji",
+        srcType: src.gallery,
+        minSrc: "genji1.jpg",
+        src: ["genji1.jpg", "genji2.jpg", "genji3.jpg"],
+        tags: [tags.engineering, tags.prv],
+        tools: [tools.inventor, tools.arduino]
+      },
       {
         id: "bastion-robot",
         srcType: src.video,

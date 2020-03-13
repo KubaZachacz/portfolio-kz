@@ -20,16 +20,28 @@
     "title": "Portfolio page",
     "description": "You are here! My first steps with Svelte framework. Page made as a field for experiments with anime.js and rollup. Bugged and unpredictable - pure madness."
   },
+  "envio": {
+    "title": "Envio IoT Dashboard",
+    "description": "Dahsboard tool dedicated for a digital label that can display any dynamic information to track entire fleet and run smoother operations."
+  },
   "avatar-maker": {
     "title": "Avatar maker",
     "description": "Showcase project, which was made to practice my new favourite React stack. It's going to be a part of something way much bigger soon!"
   },
+  "dgprawo": {
+    "title": "Kancelaria Radcy Prawnego",
+    "description": "My first ordered, custom-made website. Made with pure HTML, CSS and a pinch of JS."
+  },
+  "genji": {
+    "title": "Genji Simulator Game",
+    "description": "Simple, one click game inspired by Overwatch meme. Unfortunately currently is blocked at Google Play."
+  },
   "bastion-robot": {
     "title": "Robotic arm",
-    "description": "Bastion inspired robotic arm"
+    "description": "Robotic arm fully designed and made by myself thanks to the miracle of 3D printing. Robot with forward kinematics and pariatly inverted control with marvelous ability to play ♪ music ♪ on it's stepper motors."
   },
   "placeholder": {
-    "title": "Some title",
+    "title": "Have a nice day",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum laoreet tempor vestibulum. Cras sed purus cursus, egestas ex ut, dapibus dui. Aenean ultrices turpis in dolor cursus, in euismod mi blandit. Duis ut tincidunt libero, eu laoreet leo. Aenean id nibh fringilla, porttitor enim et, convallis ex. "
   }
 }
