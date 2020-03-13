@@ -90,9 +90,6 @@ export default {
         ]
       ]
     }),
-    url({
-      publicPath: "kz"
-    }),
     production && terser()
   ],
   watch: {

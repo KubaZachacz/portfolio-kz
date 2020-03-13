@@ -1,6 +1,6 @@
 {
   "name": "svelte-app",
-  "homepage": "https://123web.pl/kz/",
+  "homepage": "https://kuba-zachacz.123web.pl",
   "version": "1.0.0",
   "scripts": {
     "build": "rollup -c",

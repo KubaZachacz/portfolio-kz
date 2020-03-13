@@ -33,12 +33,14 @@
   }
   h2,
   h1 {
+    display: table;
+    // ^^ width: max-content / fit-content workaround for EDGE;
     font-weight: 100;
     transition: all 1s;
-    width: fit-content;
     position: relative;
     left: 50%;
     transform: translate(-50%, 2vh);
+    transform-origin: 50% 50%;
   }
   h1 {
     font-size: 7vh;

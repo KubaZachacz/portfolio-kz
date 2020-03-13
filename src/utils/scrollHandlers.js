@@ -11,7 +11,12 @@ import { viewedFlag } from "../store/store";
 export default function initScroll() {
   const { setSprite } = setupHeadAnimation();
 
-  const { pageHeader, intro1, headContainer, timelineLines } = reutrnElements();
+  const {
+    pageHeader,
+    intro1,
+    faceImageContainer,
+    timelineLines
+  } = reutrnElements();
 
   const timelineViewdHandler = () => {
     viewedFlag.set(true);
@@ -74,14 +79,14 @@ export default function initScroll() {
     .setPin(intro.id1)
     .on("enter", function(event) {
       intro1.classList.remove("hidden");
-      headContainer.classList.add("scaled");
+      faceImageContainer.classList.add("scaled");
       pulseCircle.pause();
       pulseCircle.seek(0);
       restartLinesProgress(lines.pahse1);
     })
     .on("leave", function(event) {
       intro1.classList.add("hidden");
-      headContainer.classList.remove("scaled");
+      faceImageContainer.classList.remove("scaled");
       pulseCircle.play();
     });
 
@@ -155,13 +160,13 @@ export default function initScroll() {
         timelineLines.classList.remove("unrevealed");
         pageHeader.classList.add("navbar");
       } else {
-        headContainer.classList.remove("down");
+        faceImageContainer.classList.remove("down");
         animateLines([...lines.pahse1, ...lines.pahse2]);
       }
     })
     .on("leave", function({ scrollDirection }) {
       if (scrollDirection === dir.forward) {
-        headContainer.classList.add("down");
+        faceImageContainer.classList.add("down");
         animateLines([...lines.pahse1, ...lines.pahse2], true);
         timelineViewdHandler();
       } else {

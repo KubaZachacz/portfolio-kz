@@ -3,7 +3,7 @@
   import Modal from "svelte-simple-modal";
   import Header from "./components/Header.svelte";
   import Introduction from "./components/Introduction.svelte";
-  import Head from "./components/Head.svelte";
+  import FaceImage from "./components/FaceImage.svelte";
   import TimelineLines from "./components/Timeline/TimelineLines.svelte";
   import TimelineItems from "./components/Timeline/TimelineItems.svelte";
   import initScroll from "./utils/scrollHandlers";
@@ -29,7 +29,7 @@
 <Header />
 <main>
   <TimelineLines />
-  <Head />
+  <FaceImage />
   <Introduction />
   <div style="height: 50px" />
   <Modal

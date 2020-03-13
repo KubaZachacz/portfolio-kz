@@ -15,7 +15,7 @@
     transform: translateX(-50%) translateY(100%) !important;
   }
 
-  .head-position {
+  .face-image-position {
     display: block;
     position: fixed;
     bottom: 2vh;
@@ -32,10 +32,10 @@
     }
   }
 
-  #head-container {
+  #face-image-container {
     z-index: 10;
 
-    .head {
+    .face-image {
       height: 50vh;
       width: auto;
       &.overlay {
@@ -78,12 +78,12 @@
   }
 </style>
 
-<div class="head-section">
-  <div id="head-container" class="head-position scaled">
-    <img id="head-image" class="head" src="images/kuba-1.svg" alt="moi" />
+<div class="face-image-section">
+  <div id="face-image-container" class="face-image-position scaled">
+    <img id="face-image" class="face-image" src="images/kuba-1.svg" alt="moi" />
     <svg
       id="shape-container"
-      class="head-position"
+      class="face-image-position"
       viewBox="0 0 560 560"
       fill="none"
       xmlns="http://www.w3.org/2000/svg">
