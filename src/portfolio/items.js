@@ -9,6 +9,7 @@ const tags = {
   pro: "professional",
   zrtx: "zortrax",
   akra: "akra",
+  web: "123web",
   graphic: "graphic",
   front: "front-end",
   engineering: "engineering"
@@ -24,7 +25,8 @@ const tools = {
   arduino: "Arduino",
   sotrybook: "Storybook",
   unity: "Unity",
-  vanilla: "HTML, CSS, JS"
+  vanilla: "HTML, CSS, JS",
+  wp: "WordPress"
 };
 
 export const portfolioItems = [
@@ -66,23 +68,32 @@ export const portfolioItems = [
     year: 2019,
     items: [
       {
+        id: "piotr-wp",
+        url: "https://123web.pl/piotrdemo/",
+        srcType: src.gallery,
+        minSrc: "piotr1.png",
+        src: ["piotr1.png", "piotr2.png"],
+        tags: [tags.front, tags.web, tags.pro],
+        tools: [tools.wp]
+      },
+      {
         id: "panel-demo",
         url: "https://123web.pl/PanelDemo/",
         repo: "https://github.com/KubaZachacz/PanelDemo",
         srcType: src.gallery,
         minSrc: "panel1.png",
         src: ["panel1.png", "panel2.png"],
-        tags: [tags.front, tags.prv],
+        tags: [tags.front, tags.web, tags.prv],
         tools: [tools.react, tools.redux, tools.material]
       },
-      {
-        id: "placeholder",
-        srcType: src.img,
-        minSrc: "baner-1.jpg",
-        src: "baner-1.jpg",
-        tags: [tags.prv],
-        tools: [tools.svelte]
-      },
+      // {
+      //   id: "placeholder",
+      //   srcType: src.img,
+      //   minSrc: "baner-1.jpg",
+      //   src: "baner-1.jpg",
+      //   tags: [tags.prv],
+      //   tools: [tools.svelte]
+      // },
       {
         id: "dgprawo",
         url: "https://dgprawo.pl/",
