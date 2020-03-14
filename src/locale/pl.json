@@ -3,7 +3,7 @@
     "1": "Przewijaj w dół aby uzyskać więcej informacji.",
     "1-b": "Skocz do linii czasu",
     "2": "Cześć, jestem Kuba - Frontend Developer z dodatkowym inżynieryjnym doświadczeniem. W końcu nastał czas, żeby zebrać i opublikować w jednym miejscu niektóre z moich przeróżnych projektów.",
-    "2-b": "Dlatego tu jesteś, na tej odrobinę szalonej stronie",
+    "2-b": "Dlatego tu jesteś, na tej odrobinę zwariowanej stronie",
     "3": "Czekaj, co się właściwie dzieje?!",
     "4": "OK, wiem! Przewijaj szybciej, żeby dostać się do osi czasu projektów.",
     "4-b": "Następnym razem będzie łatwiej, obiecuję!",
@@ -18,11 +18,11 @@
   },
   "portfolio-page": {
     "title": "Strona portfolio",
-    "description": "Jeteś tutaj! Ta strona to moje pierwsze kroki z frameworkiem Svelte, dodatkowo jest pole do eksperymentów z anime.js i rollup'em. Zbugowana i nieprzewidywalna - czyste szaleństwo."
+    "description": "Jesteś tutaj! Ta strona to moje pierwsze kroki z frameworkiem Svelte, dodatkowo jest pole do eksperymentów z anime.js i rollup'em. Zbugowana i nieprzewidywalna - czyste szaleństwo."
   },
   "envio": {
     "title": "Envio IoT Dashboard",
-    "description": "Panel kontrolny dla urządzenia IoT - elektronicznej etykiedy dedykowanej dla kufrów czy kontenerów, która dynamicznie zbiera i wyświetla dane. Urządzenie, które pozwala kontrolować flotę i ma ułatwiać logistykę."
+    "description": "Panel kontrolny dla urządzenia IoT - elektronicznej etykiety dedykowanej dla kufrów czy kontenerów, która dynamicznie zbiera i wyświetla dane. Urządzenie, które pozwala kontrolować flotę i ma ułatwiać logistykę."
   },
   "avatar-maker": {
     "title": "Generator Awatarów",
@@ -32,17 +32,25 @@
     "title": "Panel obsługi salonu kosmetycznego",
     "description": "Panel stworzony do zarządzania bazą danych salonu kosmetycznego - klienci, produkty oraz rezerwacje. Dostępny przykład to wersja demo z mockowanymi danymi. Zapraszam do testowania i zamawiania! ;)"
   },
+  "quick-green": {
+    "title": "Quick Green - hackathon",
+    "description": "Projekt wykonany w trakcie Hackathonu #OtwarteDane - aplikacja wykorzystuje API otwartych danych do oceny wybranego miejsca pod kątem opłacalności inwestycji w panele fotowoltaiczne. Niestety przygotowany na czas konkursu serwer przetwarzające dane nie jest już aktywny, ale dalej można przetestować aplikację z przygotowanymi mockowanymi danymi."
+  },
+  "memory-game": {
+    "title": "Gra Memory",
+    "description": "Mój pierwszy projekt wykonany w Reakcie. Zapraszam do gry! Założę się, że nikt nie przejdzie ostatniego poziomu ]:->"
+  },
   "dgprawo": {
     "title": "Kancelaria Radcy Prawnego",
     "description": "Moja pierwsza strona zrobiona na zamówienie. Czysty HTML, CSS i odrobina JSa."
   },
   "genji": {
     "title": "Gra Genji Simulator",
-    "description": "Prosta gra zainspirowana memai z gry Overwatch. Niestety obecnie jest zablokowana na sklepie Google PLay."
+    "description": "Prosta gra zainspirowana memami z gry Overwatch. Niestety obecnie jest zablokowana na sklepie Google PLay."
   },
   "bastion-robot": {
     "title": "Robotic arm",
-    "description": "Robotyczne ramię w pełni zaprojektowane i wykonane przeze mnie, dzieki cudowi druku 3D!. Robot posiada możliwości sterowania za pomocą kinematyki prostej i protoypu kinematyki odwrotnej. Dodatkowo może grać ♪ melodie ♪ na swoich silnikach krokowyh."
+    "description": "Robotyczne ramię w pełni zaprojektowane i wykonane przeze mnie, dzięki cudowi druku 3D!. Robot posiada możliwości sterowania za pomocą kinematyki prostej i prototypowej kinematyki odwrotnej. Dodatkowo może grać ♪ melodie ♪ na swoich silnikach krokowych."
   },
   "placeholder": {
     "title": "Miłego dnia",

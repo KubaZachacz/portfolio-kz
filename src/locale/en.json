@@ -22,7 +22,7 @@
   },
   "envio": {
     "title": "Envio IoT Dashboard",
-    "description": "Dahsboard tool dedicated for a digital label that can display any dynamic information to track entire fleet and run smoother operations."
+    "description": "Dashboard tool dedicated for a digital label that can display any dynamic information to track entire fleet and run smoother operations."
   },
   "avatar-maker": {
     "title": "Avatar maker",
@@ -34,7 +34,15 @@
   },
   "panel-demo": {
     "title": "Beauty clinic dashboard",
-    "description": "Dashboard panel created to maintain beauty's clinic database. Here's available demo version with mocked data. Try it and order one NOW!"
+    "description": "Dashboard panel created to maintain beauty's clinic database - customers, products and reservations. Here's available demo version with mocked data. Try it and order one NOW!"
+  },
+  "quick-green": {
+    "title": "Quick Green - hackathon",
+    "description": "Made for Hackathon #OtwarteDane - app that uses open data API to evaluate selected place for solar panels investition - unfortunately data server is down - but still you can enjoy mocked data demo."
+  },
+  "memory-game": {
+    "title": "Memory Game",
+    "description": "My first time EVER React project. Check it out! I dare YOU to win last sudden death level"
   },
   "dgprawo": {
     "title": "Kancelaria Radcy Prawnego",
@@ -46,7 +54,7 @@
   },
   "bastion-robot": {
     "title": "Robotic arm",
-    "description": "Robotic arm fully designed and made by myself thanks to the miracle of 3D printing. Robot with forward kinematics and pariatly inverted control with marvelous ability to play ♪ music ♪ on it's stepper motors."
+    "description": "Robotic arm fully designed and made by myself thanks to the miracle of 3D printing. Robot with forward kinematics and partially inverted control with marvelous ability to play ♪ music ♪ on it's stepper motors."
   },
   "placeholder": {
     "title": "Have a nice day",

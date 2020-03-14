@@ -94,6 +94,34 @@ export const portfolioItems = [
       //   tags: [tags.prv],
       //   tools: [tools.svelte]
       // },
+      // {
+      //   id: "placeholder",
+      //   srcType: src.img,
+      //   minSrc: "baner-1.jpg",
+      //   src: "baner-1.jpg",
+      //   tags: [tags.prv],
+      //   tools: [tools.svelte]
+      // },
+      {
+        id: "quick-green",
+        url: "#",
+        repo: "https://github.com/KubaZachacz/GQ",
+        srcType: src.gallery,
+        minSrc: "qg1.png",
+        src: "qg1.png",
+        tags: [tags.front, tags.prv],
+        tools: [tools.react]
+      },
+      {
+        id: "memory-game",
+        url: "https://kubazachacz.github.io/MemoryGame",
+        repo: "https://github.com/KubaZachacz/MemoryGame",
+        srcType: src.img,
+        minSrc: "memory1.png",
+        src: "memory1.png",
+        tags: [tags.front, tags.prv],
+        tools: [tools.react]
+      },
       {
         id: "dgprawo",
         url: "https://dgprawo.pl/",
