@@ -1,4 +1,8 @@
 {
+  "cookies": {
+    "text": "Ta strona używa plików cookie w celu usprawnienia i ułatwienia dostępu do serwisu oraz prowadzenia danych statystycznych. Dalsze korzystanie z tej witryny oznacza akceptację tego stanu rzeczy.",
+    "accept": "OK"
+  },
   "intro": {
     "1": "Przewijaj w dół aby uzyskać więcej informacji.",
     "1-b": "Skocz do linii czasu",

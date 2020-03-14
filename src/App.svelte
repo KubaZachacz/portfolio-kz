@@ -1,6 +1,7 @@
 <script>
   import { onMount } from "svelte";
   import Modal from "svelte-simple-modal";
+  import CookieBanner from "./components/CookieBanner.svelte";
   import Header from "./components/Header.svelte";
   import Introduction from "./components/Introduction.svelte";
   import FaceImage from "./components/FaceImage.svelte";
@@ -26,6 +27,7 @@
 
 </style>
 
+<CookieBanner />
 <Header />
 <main>
   <TimelineLines />

@@ -1,4 +1,8 @@
 {
+  "cookies": {
+    "text": "By continuing to visit this site, you accept the use of cookies for performance and statistical purposes.",
+    "accept": "OK"
+  },
   "intro": {
     "1": "Scroll down for more info",
     "1-b": "or jump to timeline",
