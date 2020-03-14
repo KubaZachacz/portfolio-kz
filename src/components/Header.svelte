@@ -198,5 +198,5 @@
     </select>
   </nav>
   <h1>Kuba Zachacz</h1>
-  <h2>Frontend Developer</h2>
+  <h2>Frontend & engineering</h2>
 </header>
