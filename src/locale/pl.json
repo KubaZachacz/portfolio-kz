@@ -28,6 +28,10 @@
     "title": "Generator Awatarów",
     "description": "Mały demo projekt, zrobiony by przećwiczyć aktualnego i ulubionego Reactowego stacka. W przyszłości będzie częścią czegoś znacznie większego!"
   },
+  "piotr-wp": {
+    "title": "Piot Fejdasz - trener personalny",
+    "description": "Propozycja designu nowej strony przygotowanej dla piotrfejdasz.net. Projekt ten jest próbą stworzenia własnego motywu do Wordpressa wraz z dedykowanymi blokami edytora Gutenberg."
+  },
   "panel-demo": {
     "title": "Panel obsługi salonu kosmetycznego",
     "description": "Panel stworzony do zarządzania bazą danych salonu kosmetycznego - klienci, produkty oraz rezerwacje. Dostępny przykład to wersja demo z mockowanymi danymi. Zapraszam do testowania i zamawiania! ;)"

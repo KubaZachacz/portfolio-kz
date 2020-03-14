@@ -5,7 +5,7 @@ import livereload from "rollup-plugin-livereload";
 import { terser } from "rollup-plugin-terser";
 import sveltePreprocess from "svelte-preprocess";
 import json from "@rollup/plugin-json";
-import url from "@rollup/plugin-url";
+// import url from "@rollup/plugin-url";
 // import buble from "@rollup/plugin-buble";
 import babel from "rollup-plugin-babel";
 
