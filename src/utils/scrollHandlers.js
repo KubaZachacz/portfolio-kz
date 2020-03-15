@@ -1,10 +1,9 @@
 import ScrollMagic from "scrollmagic";
 import "scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators";
 import anime from "animejs/lib/anime.es.js";
-// import { animateParticles } from "./particlesAnimation";
-import { setupLineDrawHanlder } from "./lineDrawHanlder";
-import { morphCriclePath, morphBrainPath, intro, dir } from "./consts";
-import { reutrnElements } from "./DOMelements";
+import { setupLineDrawHandler } from "./lineDrawHanlder";
+import { morphCirclePath, morphBrainPath, intro, dir } from "./consts";
+import { returnElements } from "./DOMelements";
 import { setupHeadAnimation } from "./headAnimation";
 import { viewedFlag } from "../store/store";
 
@@ -16,9 +15,9 @@ export default function initScroll() {
     intro1,
     faceImageContainer,
     timelineLines
-  } = reutrnElements();
+  } = returnElements();
 
-  const timelineViewdHandler = () => {
+  const timelineViewedHandler = () => {
     viewedFlag.set(true);
 
     if (typeof Storage !== "undefined") {
@@ -31,7 +30,7 @@ export default function initScroll() {
     animateLines,
     setLinesProgress,
     restartLinesProgress
-  } = setupLineDrawHanlder();
+  } = setupLineDrawHandler();
 
   const pulseCircle = anime({
     targets: "#base-circle",
@@ -58,7 +57,7 @@ export default function initScroll() {
         targets: "#base-circle",
         d: [
           {
-            value: isBrain ? morphCriclePath : morphBrainPath,
+            value: isBrain ? morphCirclePath : morphBrainPath,
             duration: 1000
           }
         ]
@@ -82,7 +81,7 @@ export default function initScroll() {
       faceImageContainer.classList.add("scaled");
       pulseCircle.pause();
       pulseCircle.seek(0);
-      restartLinesProgress(lines.pahse1);
+      restartLinesProgress(lines.phase1);
     })
     .on("leave", function(event) {
       intro1.classList.add("hidden");
@@ -112,7 +111,7 @@ export default function initScroll() {
       if (scrollDirection === dir.forward) {
         setSprite(1);
         handleMorph();
-        animateLines(lines.pahse1);
+        animateLines(lines.phase1);
         isBrain = true;
       }
     })
@@ -120,7 +119,7 @@ export default function initScroll() {
       if (scrollDirection === dir.forward) {
       } else {
         setSprite(0);
-        animateLines(lines.pahse1);
+        animateLines(lines.phase1);
 
         handleMorph();
         isBrain = false;
@@ -133,13 +132,13 @@ export default function initScroll() {
     .setPin(intro.id4)
     .setClassToggle(intro.id4, "visible")
     .on("progress", ({ progress }) => {
-      setLinesProgress(lines.pahse2, progress);
+      setLinesProgress(lines.phase2, progress);
     })
     .on("enter", function({ scrollDirection }) {
       if (scrollDirection === dir.forward) {
         setSprite(0);
       } else {
-        setLinesProgress(lines.pahse2, 1);
+        setLinesProgress(lines.phase2, 1);
       }
     })
     .on("leave", function({ scrollDirection }) {
@@ -161,14 +160,14 @@ export default function initScroll() {
         pageHeader.classList.add("navbar");
       } else {
         faceImageContainer.classList.remove("down");
-        animateLines([...lines.pahse1, ...lines.pahse2]);
+        animateLines([...lines.phase1, ...lines.phase2]);
       }
     })
     .on("leave", function({ scrollDirection }) {
       if (scrollDirection === dir.forward) {
         faceImageContainer.classList.add("down");
-        animateLines([...lines.pahse1, ...lines.pahse2], true);
-        timelineViewdHandler();
+        animateLines([...lines.phase1, ...lines.phase2], true);
+        timelineViewedHandler();
       } else {
         setSprite(0);
         timelineLines.classList.add("unrevealed");

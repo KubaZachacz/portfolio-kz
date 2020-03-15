@@ -1,4 +1,4 @@
-export function reutrnElements() {
+export function returnElements() {
   return {
     pageHeader: document.getElementById("page-header"),
     intro1: document.getElementById("intro-1"),

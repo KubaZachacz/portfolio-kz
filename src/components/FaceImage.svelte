@@ -1,13 +1,10 @@
 <script>
   import Drawing from "./Drawing.svelte";
   import Lines from "./Lines.svelte";
-  // import Art from "./Art.svelte";
   import { onMount } from "svelte";
   import { animateParticles } from "../utils/particlesAnimation";
   import anime from "animejs/lib/anime.es.js";
-  import { morphCriclePath } from "../utils/consts";
-  export const initCirclePath = morphCriclePath;
-  onMount(() => {});
+  import { morphCirclePath } from "../utils/consts";
 </script>
 
 <style lang="scss">
@@ -88,7 +85,7 @@
       fill="none"
       xmlns="http://www.w3.org/2000/svg">
       <g id="shape-wrapper">
-        <path id="base-circle" d={initCirclePath} fill="#8CB5E4" />
+        <path id="base-circle" d={morphCirclePath} fill="#8CB5E4" />
       </g>
     </svg>
   </div>

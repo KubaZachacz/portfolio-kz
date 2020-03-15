@@ -22,9 +22,9 @@ const BASIC_CONFIG = {
   }
 };
 
-export const setupLineDrawHanlder = () => {
+export const setupLineDrawHandler = () => {
   const lines = {
-    pahse1: [
+    phase1: [
       anime({
         ...BASIC_CONFIG,
         targets: "#lines-left path",
@@ -36,12 +36,13 @@ export const setupLineDrawHanlder = () => {
         duration: 2200
       })
     ],
-    pahse2: [
+    phase2: [
       anime({
         ...BASIC_CONFIG,
         targets: "#lines-2-left path",
         duration: 500,
         update: function({ progress }) {
+          console.log("progress", progress);
           if (progress === 0) {
             const targets = document.querySelectorAll("#lines-2-left path");
             for (let target of targets) {
