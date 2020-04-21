@@ -20,6 +20,10 @@
     "gallery": "Open gallery",
     "video": "Open video"
   },
+  "cap": {
+    "title": "Cards Against Pandemic",
+    "description": "Developed in a hurry to bring relief to people tired of quarantine. Online game made with React, Node and socket.io."
+  },
   "portfolio-page": {
     "title": "Portfolio page",
     "description": "You are here! My first steps with Svelte framework. Page made as a field for experiments with anime.js and rollup. Bugged and unpredictable - pure madness."

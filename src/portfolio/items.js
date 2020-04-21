@@ -1,7 +1,7 @@
 const src = {
   img: "img",
   video: "video",
-  gallery: "gallery"
+  gallery: "gallery",
 };
 
 const tags = {
@@ -12,7 +12,7 @@ const tags = {
   web: "123web",
   graphic: "graphic",
   front: "front-end",
-  engineering: "engineering"
+  engineering: "engineering",
 };
 
 const tools = {
@@ -26,13 +26,23 @@ const tools = {
   sotrybook: "Storybook",
   unity: "Unity",
   vanilla: "HTML, CSS, JS",
-  wp: "WordPress"
+  wp: "WordPress",
+  node: "Node.js",
 };
 
 export const portfolioItems = [
   {
     year: 2020,
     items: [
+      {
+        id: "cap",
+        url: "https://cap.123web.pl",
+        srcType: src.img,
+        minSrc: "cap-min.jpg",
+        src: ["cap1.png", "cap2.png"],
+        tags: [tags.front, tags.prv],
+        tools: [tools.react, tools.node],
+      },
       {
         id: "portfolio-page",
         url: "#",
@@ -41,7 +51,7 @@ export const portfolioItems = [
         minSrc: "portfolio-min.jpg",
         src: "portfolio.png",
         tags: [tags.front, tags.graphic, tags.prv],
-        tools: [tools.svelte, tools.illustrator]
+        tools: [tools.svelte, tools.illustrator],
       },
       {
         id: "envio",
@@ -50,7 +60,7 @@ export const portfolioItems = [
         minSrc: "envio-min.jpg",
         src: ["envio1.png", "envio2.png", "envio3.png"],
         tags: [tags.front, tags.akra, tags.pro],
-        tools: [tools.react, tools.sotrybook]
+        tools: [tools.react, tools.sotrybook],
       },
       {
         id: "avatar-maker",
@@ -60,9 +70,9 @@ export const portfolioItems = [
         minSrc: "avatar-min.jpg",
         src: ["screen1.png", "render.png"],
         tags: [tags.front, tags.graphic, tags.prv],
-        tools: [tools.react, tools.redux, tools.material, tools.illustrator]
-      }
-    ]
+        tools: [tools.react, tools.redux, tools.material, tools.illustrator],
+      },
+    ],
   },
   {
     year: 2019,
@@ -74,7 +84,7 @@ export const portfolioItems = [
         minSrc: "piotr-min.jpg",
         src: ["piotr1.png", "piotr2.png"],
         tags: [tags.front, tags.web, tags.pro],
-        tools: [tools.wp]
+        tools: [tools.wp],
       },
       {
         id: "panel-demo",
@@ -84,7 +94,7 @@ export const portfolioItems = [
         minSrc: "panel-min.jpg",
         src: ["panel1.png", "panel2.png"],
         tags: [tags.front, tags.web, tags.prv],
-        tools: [tools.react, tools.redux, tools.material]
+        tools: [tools.react, tools.redux, tools.material],
       },
       // {
       //   id: "placeholder",
@@ -102,7 +112,7 @@ export const portfolioItems = [
         minSrc: "qg-min.jpg",
         src: "qg1.png",
         tags: [tags.front, tags.prv],
-        tools: [tools.react]
+        tools: [tools.react],
       },
       {
         id: "memory-game",
@@ -112,7 +122,7 @@ export const portfolioItems = [
         minSrc: "memory-min.jpg",
         src: "memory1.png",
         tags: [tags.front, tags.prv],
-        tools: [tools.react]
+        tools: [tools.react],
       },
       {
         id: "dgprawo",
@@ -121,9 +131,9 @@ export const portfolioItems = [
         minSrc: "dgprawo-min.jpg",
         src: "dgprawo1.png",
         tags: [tags.front, tags.pro],
-        tools: [tools.vanilla]
-      }
-    ]
+        tools: [tools.vanilla],
+      },
+    ],
   },
   {
     year: 2018,
@@ -134,7 +144,7 @@ export const portfolioItems = [
         minSrc: "genji-min.jpg",
         src: ["genji1.jpg", "genji2.jpg", "genji3.jpg"],
         tags: [tags.engineering, tags.prv],
-        tools: [tools.inventor, tools.arduino]
+        tools: [tools.inventor, tools.arduino],
       },
       {
         id: "bastion-robot",
@@ -142,8 +152,8 @@ export const portfolioItems = [
         minSrc: "bastion-min.jpg",
         src: "https://www.youtube.com/embed/TWDAUc1G264",
         tags: [tags.engineering, tags.prv],
-        tools: [tools.inventor, tools.arduino]
-      }
-    ]
-  }
+        tools: [tools.inventor, tools.arduino],
+      },
+    ],
+  },
 ];

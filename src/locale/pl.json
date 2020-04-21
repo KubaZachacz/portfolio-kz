@@ -20,6 +20,10 @@
     "gallery": "Otwórz galerię",
     "video": "Otwórz wideo"
   },
+  "cap": {
+    "title": "Cards Against Pandemic",
+    "description": "Stworzona w pośpiechu by przynieść ulgę ludziom zmęczonym kwarantanną. Adaptacja online Cards Against Humanity wykonana przy pomocy React, Node oraz socket.io."
+  },
   "portfolio-page": {
     "title": "Strona portfolio",
     "description": "Jesteś tutaj! Ta strona to moje pierwsze kroki z frameworkiem Svelte, dodatkowo jest pole do eksperymentów z anime.js i rollup'em. Zbugowana i nieprzewidywalna - czyste szaleństwo."
