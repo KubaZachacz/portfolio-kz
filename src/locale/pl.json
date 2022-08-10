@@ -20,6 +20,18 @@
     "gallery": "Otwórz galerię",
     "video": "Otwórz wideo"
   },
+  "literky": {
+    "title": "Literky",
+    "description": "Własne podejście do udoskonalenia światowego hitu jakim okazało się być WORDLE."
+  },
+  "pyk": {
+    "title": "PYK",
+    "description": "Powstałe na bazie CAP'a we współpracy z jbzd.com.pl. Portal z towarzyskimi grami online."
+  },
+  "intervox": {
+    "title": "Intervox",
+    "description": "Platforma do sprzedaży licencji utworów muzycznych wykorzystywanych min. w filmach i serialach."
+  },
   "cap": {
     "title": "Cards Against Pandemic",
     "description": "Stworzona w pośpiechu by przynieść ulgę ludziom zmęczonym kwarantanną. Adaptacja online Cards Against Humanity wykonana przy pomocy React, Node oraz socket.io."

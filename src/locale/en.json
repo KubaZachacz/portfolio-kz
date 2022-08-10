@@ -20,6 +20,18 @@
     "gallery": "Open gallery",
     "video": "Open video"
   },
+  "literky": {
+    "title": "Literky",
+    "description": "Own approach to improving the world hit which turned out to be WORDLE."
+  },
+  "pyk": {
+    "title": "PYK",
+    "description": "Based on CAP in cooperation with jbzd.com.pl. Online social games portal."
+  },
+  "intervox": {
+    "title": "Intervox",
+    "description": "Platform for the sale of licenses for musical works used, inter alia, in movies and series."
+  },
   "cap": {
     "title": "Cards Against Pandemic",
     "description": "Developed in a hurry to bring relief to people tired of quarantine. Online game made with React, Node and socket.io."

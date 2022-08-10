@@ -9,6 +9,7 @@ const tags = {
   pro: "professional",
   zrtx: "zortrax",
   akra: "akra",
+  goodylabs: "goodylabs",
   web: "123web",
   graphic: "graphic",
   front: "front-end",
@@ -17,20 +18,59 @@ const tags = {
 
 const tools = {
   react: "React",
+  next: "Next.js",
   material: "Material UI",
+  chakra: "Chakra UI",
   svelte: "Svelte",
   redux: "Redux",
+  mobx: "Mobx",
   inventor: "Autodesk Inventor",
   illustrator: "Adobre Illustrator",
   arduino: "Arduino",
   sotrybook: "Storybook",
   unity: "Unity",
   vanilla: "HTML, CSS, JS",
+  ts: "TypeScript",
   wp: "WordPress",
   node: "Node.js",
 };
 
 export const portfolioItems = [
+  {
+    year: 2022,
+    items: [
+      {
+        id: "literky",
+        srcType: src.img,
+        minSrc: "literky1.png",
+        src: ["literky1.png", "literky2.png"],
+        repo: "https://github.com/KubaZachacz/literky",
+        tags: [tags.prv, tags.front],
+        tools: [tools.react, tools.next, tools.chakra],
+      },
+      {
+        id: "pyk",
+        srcType: src.img,
+        minSrc: "pyk1.png",
+        src: ["pyk1.png", "pyk2.png"],
+        tags: [tags.prv, tags.front],
+        tools: [tools.react, tools.next, tools.chakra],
+      },
+    ],
+  },
+  {
+    year: 2021,
+    items: [
+      {
+        id: "intervox",
+        srcType: src.img,
+        minSrc: "intervox.png",
+        src: "intervox.png",
+        tags: [tags.goodylabs, tags.front],
+        tools: [tools.react, tools.redux],
+      },
+    ],
+  },
   {
     year: 2020,
     items: [
@@ -143,8 +183,8 @@ export const portfolioItems = [
         srcType: src.gallery,
         minSrc: "genji-min.jpg",
         src: ["genji1.jpg", "genji2.jpg", "genji3.jpg"],
-        tags: [tags.engineering, tags.prv],
-        tools: [tools.inventor, tools.arduino],
+        tags: [tags.prv, tags.graphic],
+        tools: [tools.unity, tools.illustrator],
       },
       {
         id: "bastion-robot",
